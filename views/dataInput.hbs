@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Family Tree</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link href="css/form.css" rel="stylesheet">
+        
+    </head>
+    <body>
+        <form action="/display" method="GET" class="form">
+            <div class="topContainer">
+                <div class="container">
+                    <div class="wrap">
+                        <h2>Input Family Info</h2>
+                        {{!-- <a href="#" class="add">&plus;</a> --}}
+                    </div>
+                    <div class="inp-group">
+                        <div class="flex">
+                            <input type="text" placeholder="Enter the name" name="patriach">
+                            <input type="text" placeholder="Enter spouse name" name="spouse">
+                            {{!-- <input type="text" placeholder="Enter child name" name="children"> --}}
+                            {{!-- <a id="firstNode">&plus;</a> --}}
+                        </div>
+                    </div>
+                </div>
+               <input type="submit" value="Submit" class="submit"> 
+            </div>
+        </form>
+        <script type="text/javascript" src="javascripts/dataInput.js"></script>
+    </body>
+</html>

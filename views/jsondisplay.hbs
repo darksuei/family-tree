@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            height: 70px;
+            width: 30%;
+            background-color: red;
+        }
+        .form{
+            display: flex;
+            gap: 5px;
+            flex-direction: column;
+        }
+    </style>
+    {{!-- <script>
+        function addFields(){
+            var container = document.getElementById("container");
+            var input = document.createElement("input");
+            input.type = "text";
+            input.name = "child" + i;
+            container.appendChild(input);
+        }
+    </script> --}}
+</head>
+<body>
+    <form action="/display" method="post" class="form">
+        <input type="text" name="father" placeholder="Father">
+        <br/>
+        <input type="text" name="son" placeholder="son">
+        <br>
+        <input type="text" name="son" placeholder="grandson">
+        <br>
+        <input type="text" name="son" placeholder="ggrandson">
+        <br>
+        <input type="text" name="son" placeholder="gggrandson">
+        <br>
+        <input type="text" name="son" placeholder="ggggrandson">
+        <br>
+        <input type="submit">
+    </form>
+</body>
+</html>
