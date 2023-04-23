@@ -6,11 +6,11 @@ const Schema = mongoose.Schema
 
 const treeSchema = new Schema(
     {
-        patriach: Schema.Types.Mixed,
-        spouse: Schema.Types.Mixed,
+        name: Schema.Types.Mixed,
+        parent: Schema.Types.Mixed,
+        married: Schema.Types.String,
+        spouse: Schema.Types.String,
         children: Schema.Types.Mixed
-        // child: Schema.Types.Mixed,
-        // childspouse: Schema.Types.Mixed
       }
 )
 module.exports = {treeSchema}

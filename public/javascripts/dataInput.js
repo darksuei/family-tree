@@ -104,15 +104,16 @@ function createNode() {
     addSignNew.className = "addNew";
     addSignNew.innerHTML = "&plus;";
     // creating elements
+    let i2 = 0;
     for (var i = 0; i < 5; i++) {
         window['name' + i] = document.createElement("input");
         window['name' + i].type = "text";
-        window['name' + i].name = `child${i}`;
+        window['name' + i].name = `child${i2}${i}`;
         window['name' + i].placeholder = "Enter the name";
 
         window['spouse' + i] = document.createElement("input");
         window['spouse' + i].type = "text";
-        window['spouse' + i].name = `childspouse${i}`;
+        window['spouse' + i].name = `childspouse${i2}${i}`;
         window['spouse' + i].placeholder = "Enter spouse's name";
 
         window['btn' + i] = document.createElement("a");
@@ -127,6 +128,7 @@ function createNode() {
         window['flex' + i].className = "flex" + 1;
 
         console.log(window['flex' + i]);
+        i2++;
     }
 
 

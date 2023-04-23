@@ -15,6 +15,7 @@ var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
 var displayRouter = require('./routes/display');
 var inputformRouter = require('./routes/inputform');
+var getdataRouter = require('./routes/getData');
 
 var app = express();
 
@@ -37,6 +38,7 @@ app.use('/', registerRouter);
 app.use("/", authRouter);
 app.use('/', displayRouter);
 app.use('/', inputformRouter);
+app.use('/', getdataRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

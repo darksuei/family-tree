@@ -1,7 +1,5 @@
-
-
 var height = 29000;
-var width = 150000;
+var width = 150000; 
 
 var heading = "THE UCHEGBU'S FAMILY TREE"
 
@@ -12,9 +10,6 @@ var tree = d3.tree().size([width,height]);
 var svg = d3.select('body').append('svg').attr('width',width - 50).attr('height',height +4000);
 var chartGroup = svg.append('g').attr('transform','translate('+margin.left+','+margin.top+')');
 
-// if (details.length>100){
-//   var data = details
-// }
 var data = [
         {
           "name": "Chief Nwankwo UCHEGBU(Ogbambo Ego)",
@@ -751,6 +746,51 @@ var data = [
       ]
       ;
 
+// var data = [
+//   {
+//   "name": "Mr tanitoluwa",
+//   "parent": "root",
+//   "married": "+",
+//   "spouse": "Mrs tanitoluwa",
+//   "children": [
+//     {
+//       "name": "mr tani junior",
+//       "parent": "Mr tanitoluwa",
+//       "married": "+",
+//       "spouse": "miss layla",
+//       "children": []
+//     },
+//     {
+//       "name": "mr abass",
+//       "parent": "Mr tanitoluwa",
+//       "married": "+",
+//       "spouse": "miss simi",
+//       "children": []
+//     },
+//     {
+//       "name": "mr okon",
+//       "parent": "Mr tanitoluwa",
+//       "married": "+",
+//       "spouse": "mrs precious",
+//       "children": []
+//     },
+//     {
+//       "name": "mr damilola",
+//       "parent": "Mr tanitoluwa",
+//       "married": "+",
+//       "spouse": "mrs esther",
+//       "children": []
+//     },
+//     {
+//       "name": "mr dare",
+//       "parent": "Mr tanitoluwa",
+//       "married": "+",
+//       "spouse": "mrs amani",
+//       "children": []
+//     }
+//   ]
+// }
+// ];
 if(data){
 console.log(data[0]);
 }else{
