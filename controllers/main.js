@@ -62,31 +62,26 @@ const constructobj = (obj)=>{
 }
 
 module.exports.index = function(req, res) {
-    res.render(path.join(__dirname,'..','views','index'), { title: 'Family Tree' });
+  res.render(path.join(__dirname,'..','views','index'), { title: 'Family Tree' });
 }  
 
 module.exports.family_tree = function(req, res) {
   res.render(path.join(__dirname,'..','views','family_tree'), { title: 'Family Tree' });
 }
 
-module.exports.sample = async function (req, res){
-  let searchstr = req.query.search;
-  var treeDetails = await Tree.findOne({name:searchstr},{'_id': false, '__v': false});
-  var data = { title: 'Family Tree', treeDetails: treeDetails};
-  res.json(data)
-}
-
 module.exports.family_tree_search = async function(req, res) {
-  let searchstr = req.body.search;
-  var treeDetails = await Tree.findOne({name:searchstr},{'_id': false, '__v': false});
-  res.render(path.join(__dirname,'..','views','family_tree'), { title: 'Family Tree', treeDetails: JSON.stringify(treeDetails)});
+  const url = req.originalUrl;
+  console.log(url);
+  let slicedurl = url.slice(19);
+  console.log(slicedurl)
+  let newurl = '/getdata'+slicedurl
+  console.log(newurl)
+  res.render(path.join(__dirname,'..','views','family_tree'), { title: 'Family Tree', newurl: newurl});
 }
 
 module.exports.getData = async function (req,res){
   let searchstr = req.query.search;
   var treeDetails = await Tree.findOne({name:searchstr},{'_id': false, '__v': false});
-  let c = JSON.stringify(treeDetails)
-  console.log(c)
   var data = { title: 'Family Tree', treeDetails:treeDetails};
   res.json(data)
 }

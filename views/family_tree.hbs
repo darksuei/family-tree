@@ -5,18 +5,15 @@
         <meta name="viewport" content="width=device-width">
         <link href="css/tree.css" rel="stylesheet">
 		<script>
-			let url = '/getdata?search=Mr+tanitoluwa'
+			let parsedurl = '{{newurl}}'
+			let url = parsedurl.slice(0,15) + '=' + parsedurl.slice(21)
 			var gdata = null;
 			async function fetchData() {
 				const response = await fetch(url);
 				const data = await response.json();
-				console.log(data.treeDetails);
 				gdata = data;
 			}
 			fetchData();
-			setTimeout(()=>{
-				console.log(gdata.treeDetails);
-			},1000)
 		</script>
         <script crossorigin="anonymous" src="javascripts/d3.v4.js"></script>
         <meta charset="UTF-8">

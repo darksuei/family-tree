@@ -798,7 +798,6 @@ setTimeout(()=>{
   let mdata = gdata.treeDetails;
   let data =[]
   data.push(mdata)
-  console.log(data)
   if(data){
     console.log(data[0]);
     }else{

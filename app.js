@@ -17,6 +17,7 @@ var displayRouter = require('./routes/display');
 var inputformRouter = require('./routes/inputform');
 var getdataRouter = require('./routes/getData');
 var defaulttreeRouter = require('./routes/default_family_tree');
+var treesearchRouter = require('./routes/family_tree_search');
 
 var app = express();
 
@@ -41,6 +42,7 @@ app.use('/', displayRouter);
 app.use('/', inputformRouter);
 app.use('/', getdataRouter);
 app.use('/', defaulttreeRouter);
+app.use('/', treesearchRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
