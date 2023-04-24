@@ -69,20 +69,30 @@ module.exports.family_tree = function(req, res) {
   res.render(path.join(__dirname,'..','views','family_tree'), { title: 'Family Tree' });
 }
 
-module.exports.getData = async function (req,res){
+module.exports.sample = async function (req, res){
   let searchstr = req.query.search;
   var treeDetails = await Tree.findOne({name:searchstr},{'_id': false, '__v': false});
   var data = { title: 'Family Tree', treeDetails: treeDetails};
-  // res.json(data)
-  res.render(path.join(__dirname,'..','views','family_tree'), { title: 'Family Tree', treeDetails: treeDetails});
-  // res.send(data)
+  res.json(data)
 }
 
 module.exports.family_tree_search = async function(req, res) {
   let searchstr = req.body.search;
   var treeDetails = await Tree.findOne({name:searchstr},{'_id': false, '__v': false});
-  // res.send(treeDetails)
   res.render(path.join(__dirname,'..','views','family_tree'), { title: 'Family Tree', treeDetails: JSON.stringify(treeDetails)});
+}
+
+module.exports.getData = async function (req,res){
+  let searchstr = req.query.search;
+  var treeDetails = await Tree.findOne({name:searchstr},{'_id': false, '__v': false});
+  let c = JSON.stringify(treeDetails)
+  console.log(c)
+  var data = { title: 'Family Tree', treeDetails:treeDetails};
+  res.json(data)
+}
+
+module.exports.default_tree = async function (req,res){
+  res.render(path.join(__dirname,'..','views','default_family_tree'), { title: 'Family Tree' });
 }
 
 module.exports.login = function(req, res) {

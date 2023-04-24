@@ -8,7 +8,7 @@ require("dotenv").config();
 var connectDB = require("./db/connect");
 var cors = require("cors");
 
-var authRouter = require("./routes/auth");
+var authRouter = require('./routes/auth');
 var indexRouter = require('./routes/index');
 var treeRouter = require('./routes/family_tree');
 var loginRouter = require('./routes/login');
@@ -16,6 +16,7 @@ var registerRouter = require('./routes/register');
 var displayRouter = require('./routes/display');
 var inputformRouter = require('./routes/inputform');
 var getdataRouter = require('./routes/getData');
+var defaulttreeRouter = require('./routes/default_family_tree');
 
 var app = express();
 
@@ -35,10 +36,11 @@ app.use('/', indexRouter);
 app.use('/', treeRouter);
 app.use('/', loginRouter);
 app.use('/', registerRouter);
-app.use("/", authRouter);
+app.use('/', authRouter);
 app.use('/', displayRouter);
 app.use('/', inputformRouter);
 app.use('/', getdataRouter);
+app.use('/', defaulttreeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
