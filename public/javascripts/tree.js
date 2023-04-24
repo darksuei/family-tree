@@ -10,178 +10,60 @@ var tree = d3.tree().size([width,height]);
 var svg = d3.select('body').append('svg').attr('width',width - 50).attr('height',height +4000);
 var chartGroup = svg.append('g').attr('transform','translate('+margin.left+','+margin.top+')');
 
-var data = [
+if (!data){
+  var data = [
+    {
+      "name": "Chief Nwankwo UCHEGBU(Ogbambo Ego)",
+      "parent": "root",
+      "married": "+",
+      "spouse": " Mrs Odoziaku Uchegbu",
+      "children": [
         {
-          "name": "Chief Nwankwo UCHEGBU(Ogbambo Ego)",
-          "parent": "root",
+          "name": "Chief Nwokoye Akude UCHEGBU",
+          "parent": "Chief Nwankwo UCHEGBU(Ogbambo Ego)",
           "married": "+",
-          "spouse": " Mrs Odoziaku Uchegbu",
+          "spouse": "Chief MRS Nwaku Uchegbu",
           "children": [
             {
-              "name": "Chief Nwokoye Akude UCHEGBU",
-              "parent": "Chief Nwankwo UCHEGBU(Ogbambo Ego)",
+              "name": ["Mr Felix Uchegbu"],
+              "parent": "Chief MRS Nwaku Uchegbu",
               "married": "+",
-              "spouse": "Chief MRS Nwaku Uchegbu",
+              "spouse": "Mrs Ngozi Uchegbu (Gold)",
               "children": [
                 {
-                  "name": ["Mr Felix Uchegbu"],
-                  "parent": "Chief MRS Nwaku Uchegbu",
-                  "married": "+",
-                  "spouse": "Mrs Ngozi Uchegbu (Gold)",
+                  "name": "Chi chi Uchegbu",
+                  "parent": "Mr Felix Uchegbu",
+                  "married": "",
+                  "spouse": "",
                   "children": [
-                    {
-                      "name": "Chi chi Uchegbu",
-                      "parent": "Mr Felix Uchegbu",
-                      "married": "",
-                      "spouse": "",
-                      "children": [
-                      
-                      ]
-                    },
-                    {
-                      "name": "Chief Ifeanyi Uchegbu",
-                      "parent": "Mr Felix Uchegbu",
-                      "married": "+",
-                      "spouse": "Mrs Amaka Lilian Uchegbu",
-                      "children": [
-                        {
-                          "name": "Ms Chinaza Uchegbu",
-                          "parent": "Ms Chinaza Uchegbu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                          
-                          ]
-                        },{
-                          "name": "Mr Onyedika Uchegbu",
-                          "parent": "Mr Onyedika Uchegbu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                          
-                          ]
-                        },{
-                          "name": "Mr Dumebi Uchegbu",
-                          "parent": "Chief Ifeanyi Uchegbu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                          
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "name": "Mr Okwudili Uchegbu",
-                      "parent": "Mr Felix Uchegbu",
-                      "married": "+",
-                      "spouse": "Mrs Obianuju Love Uchegbu",
-                      "children": [
-                        {
-                          "name": "Ms Ebube Uchegbu",
-                          "parent": "Mr Okwudili Uchegbu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                          
-                          ]
-                        },
-                        {
-                          "name": "Mr Chibuike Uchegbu",
-                          "parent": "Mr Okwudili Uchegbu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                          
-                          ]
-                        },
-                        {
-                          "name": "Ms Amanda Uchegbu",
-                          "parent": "Mr Okwudili Uchegbu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                          
-                          ]
-                        },
-                        {
-                          "name": "Mr Chukwudalu Uchegbu",
-                          "parent": "Mr Okwudili Uchegbu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                          
-                          ]
-                        }
-                      ]
-                    }
                   
                   ]
                 },
                 {
-                  "name": "Chief Benedict Uchegbu",
-                  "parent": "Chief MRS Nwaku Uchegbu",
+                  "name": "Chief Ifeanyi Uchegbu",
+                  "parent": "Mr Felix Uchegbu",
                   "married": "+",
-                  "spouse": "Mrs Nkili Uchegbu  +  Mrs Ochomma Uchegbu",
+                  "spouse": "Mrs Amaka Lilian Uchegbu",
                   "children": [
                     {
-                      "name": "Mr Obiora Uchegbu",
-                      "parent": "Chief Benedict Uchegbu",
+                      "name": "Ms Chinaza Uchegbu",
+                      "parent": "Ms Chinaza Uchegbu",
                       "married": "",
                       "spouse": "",
                       "children": [
                       
                       ]
-                    },
-                    {
-                      "name": "Mr Uchenna Uchegbu",
-                      "parent": "Chief Benedict Uchegbu",
+                    },{
+                      "name": "Mr Onyedika Uchegbu",
+                      "parent": "Mr Onyedika Uchegbu",
                       "married": "",
                       "spouse": "",
                       "children": [
                       
                       ]
-                    },
-                    {
-                      "name": "Ms Nwanneka Uchegbu",
-                      "parent": "Chief Benedict Uchegbu",
-                      "married": "",
-                      "spouse": "",
-                      "children": [
-                      
-                      ]
-                    },
-                    {
-                      "name": "Mr Ejiofor Uchegbu",
-                      "parent": "Chief Benedict Uchegbu",
-                      "married": "",
-                      "spouse": "",
-                      "children": [
-                      
-                      ]
-                    },
-                    {
-                      "name": "Mr Chibuzor Uchegbu",
-                      "parent": "Chief Benedict Uchegbu",
-                      "married": "",
-                      "spouse": "",
-                      "children": [
-                      
-                      ]
-                    },
-                    {
-                      "name": "Ms Onyinye Uchegbu",
-                      "parent": "Chief Benedict Uchegbu",
-                      "married": "",
-                      "spouse": "",
-                      "children": [
-                        
-                      
-                      ]
-                    },
-                    {
-                      "name": "Mr Chukwuma Uchegbu",
-                      "parent": "Chief Benedict Uchegbu",
+                    },{
+                      "name": "Mr Dumebi Uchegbu",
+                      "parent": "Chief Ifeanyi Uchegbu",
                       "married": "",
                       "spouse": "",
                       "children": [
@@ -191,14 +73,14 @@ var data = [
                   ]
                 },
                 {
-                  "name": "Mrs Oliaku C. Ibegbu",
-                  "parent": "Chief MRS Nwaku Uchegbu",
+                  "name": "Mr Okwudili Uchegbu",
+                  "parent": "Mr Felix Uchegbu",
                   "married": "+",
-                  "spouse": "Mr Augustine Ibegbu",
+                  "spouse": "Mrs Obianuju Love Uchegbu",
                   "children": [
                     {
-                      "name": "Ms Ngozi Ibegbu",
-                      "parent": "Mrs Oliaku C. Ibegbu",
+                      "name": "Ms Ebube Uchegbu",
+                      "parent": "Mr Okwudili Uchegbu",
                       "married": "",
                       "spouse": "",
                       "children": [
@@ -206,8 +88,8 @@ var data = [
                       ]
                     },
                     {
-                      "name": "Mr Augustine Ibegbu",
-                      "parent": "Mrs Oliaku C. Ibegbu",
+                      "name": "Mr Chibuike Uchegbu",
+                      "parent": "Mr Okwudili Uchegbu",
                       "married": "",
                       "spouse": "",
                       "children": [
@@ -215,8 +97,8 @@ var data = [
                       ]
                     },
                     {
-                      "name": "Ms Angela Ibegbu",
-                      "parent": "Mrs Oliaku C. Ibegbu",
+                      "name": "Ms Amanda Uchegbu",
+                      "parent": "Mr Okwudili Uchegbu",
                       "married": "",
                       "spouse": "",
                       "children": [
@@ -224,114 +106,8 @@ var data = [
                       ]
                     },
                     {
-                      "name": "Mr Calista Ibegbu",
-                      "parent": "Mrs Oliaku C. Ibegbu",
-                      "married": "",
-                      "spouse": "",
-                      "children": [
-                      
-                      ]
-                    },
-                    {
-                      "name": "Mr Emeka Ibegbu",
-                      "parent": "Mrs Oliaku C. Ibegbu",
-                      "married": "",
-                      "spouse": "",
-                      "children": [
-                      
-                      ]
-                    },
-                    {
-                      "name": "Ms Chinwe Ibegbu",
-                      "parent": "Mrs Oliaku C. Ibegbu",
-                      "married": "",
-                      "spouse": "",
-                      "children": [
-                      
-                      ]
-                    },
-                    {
-                      "name": "Mr Chikwue Ibegbu",
-                      "parent": "Mrs Oliaku C. Ibegbu",
-                      "married": "",
-                      "spouse": "",
-                      "children": [
-                      
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "name": "Chief Mike Uchegbu",
-                  "parent": "Chief MRS Nwaku Uchegbu",
-                  "married": "+",
-                  "spouse": "Dr. Mrs Obianuju N. Uchegbu",
-                  "children": [
-                    {
-                      "name": "Ms Adaobi Uchegbu",
-                      "parent": "Chief Mike Uchegbu",
-                      "married": "",
-                      "spouse": "",
-                      "children": [
-                      
-                      ]
-                    },
-                    {
-                      "name": "Mr Onyebuchi Uchegbu",
-                      "parent": "Chief Mike Uchegbu",
-                      "married": "",
-                      "spouse": "",
-                      "children": [
-                      
-                      ]
-                    },
-                    {
-                      "name": "Mr Chike Uchegbu",
-                      "parent": "Chief Mike Uchegbu",
-                      "married": "",
-                      "spouse": "",
-                      "children": [
-                      
-                      ]
-                    },
-                    {
-                      "name": "Mr Chiebonam Uchegbu",
-                      "parent": "Chief Mike Uchegbu",
-                      "married": "",
-                      "spouse": "",
-                      "children": [
-                      
-                      ]
-                    },
-                    {
-                      "name": "Mr Udemezue Uchegbu",
-                      "parent": "Chief Mike Uchegbu",
-                      "married": "",
-                      "spouse": "",
-                      "children": [
-                      
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "name": "Mrs Uzunma E. Ifedi",
-                  "parent": "Chief MRS Nwaku Uchegbu",
-                  "married": "+",
-                  "spouse": "Mr Okey Ifedi",
-                  "children": [
-                    {
-                      "name": "Mr Enuma Ifedi",
-                      "parent": "Mrs Uzunma E. Ifedi",
-                      "married": "",
-                      "spouse": "",
-                      "children": [
-                      
-                      ]
-                    },
-                    {
-                      "name": "Mr Nonso Ifedi",
-                      "parent": "Mrs Uzunma E. Ifedi",
+                      "name": "Mr Chukwudalu Uchegbu",
+                      "parent": "Mr Okwudili Uchegbu",
                       "married": "",
                       "spouse": "",
                       "children": [
@@ -340,210 +116,263 @@ var data = [
                     }
                   ]
                 }
+              
               ]
             },
             {
-              "name": "Chief Samuel Onwunalike UCHEGBU",
-              "parent": "Chief Nwankwo UCHEGBU(Ogbambo Ego)",
+              "name": "Chief Benedict Uchegbu",
+              "parent": "Chief MRS Nwaku Uchegbu",
               "married": "+",
-              "spouse": "Mrs Adagu Uchegbu  +  Mrs Rose Uchegbu  +  Mrs Ojiugo Uchegbu",
+              "spouse": "Mrs Nkili Uchegbu  +  Mrs Ochomma Uchegbu",
               "children": [
                 {
-                  "name": "Mrs Adagu Uchegbu children",
-                  "parent": "Chief Samuel Onwunalike UCHEGBU",
+                  "name": "Mr Obiora Uchegbu",
+                  "parent": "Chief Benedict Uchegbu",
                   "married": "",
                   "spouse": "",
                   "children": [
+                  
+                  ]
+                },
+                {
+                  "name": "Mr Uchenna Uchegbu",
+                  "parent": "Chief Benedict Uchegbu",
+                  "married": "",
+                  "spouse": "",
+                  "children": [
+                  
+                  ]
+                },
+                {
+                  "name": "Ms Nwanneka Uchegbu",
+                  "parent": "Chief Benedict Uchegbu",
+                  "married": "",
+                  "spouse": "",
+                  "children": [
+                  
+                  ]
+                },
+                {
+                  "name": "Mr Ejiofor Uchegbu",
+                  "parent": "Chief Benedict Uchegbu",
+                  "married": "",
+                  "spouse": "",
+                  "children": [
+                  
+                  ]
+                },
+                {
+                  "name": "Mr Chibuzor Uchegbu",
+                  "parent": "Chief Benedict Uchegbu",
+                  "married": "",
+                  "spouse": "",
+                  "children": [
+                  
+                  ]
+                },
+                {
+                  "name": "Ms Onyinye Uchegbu",
+                  "parent": "Chief Benedict Uchegbu",
+                  "married": "",
+                  "spouse": "",
+                  "children": [
+                    
+                  
+                  ]
+                },
+                {
+                  "name": "Mr Chukwuma Uchegbu",
+                  "parent": "Chief Benedict Uchegbu",
+                  "married": "",
+                  "spouse": "",
+                  "children": [
+                  
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Mrs Oliaku C. Ibegbu",
+              "parent": "Chief MRS Nwaku Uchegbu",
+              "married": "+",
+              "spouse": "Mr Augustine Ibegbu",
+              "children": [
+                {
+                  "name": "Ms Ngozi Ibegbu",
+                  "parent": "Mrs Oliaku C. Ibegbu",
+                  "married": "",
+                  "spouse": "",
+                  "children": [
+                  
+                  ]
+                },
+                {
+                  "name": "Mr Augustine Ibegbu",
+                  "parent": "Mrs Oliaku C. Ibegbu",
+                  "married": "",
+                  "spouse": "",
+                  "children": [
+                  
+                  ]
+                },
+                {
+                  "name": "Ms Angela Ibegbu",
+                  "parent": "Mrs Oliaku C. Ibegbu",
+                  "married": "",
+                  "spouse": "",
+                  "children": [
+                  
+                  ]
+                },
+                {
+                  "name": "Mr Calista Ibegbu",
+                  "parent": "Mrs Oliaku C. Ibegbu",
+                  "married": "",
+                  "spouse": "",
+                  "children": [
+                  
+                  ]
+                },
+                {
+                  "name": "Mr Emeka Ibegbu",
+                  "parent": "Mrs Oliaku C. Ibegbu",
+                  "married": "",
+                  "spouse": "",
+                  "children": [
+                  
+                  ]
+                },
+                {
+                  "name": "Ms Chinwe Ibegbu",
+                  "parent": "Mrs Oliaku C. Ibegbu",
+                  "married": "",
+                  "spouse": "",
+                  "children": [
+                  
+                  ]
+                },
+                {
+                  "name": "Mr Chikwue Ibegbu",
+                  "parent": "Mrs Oliaku C. Ibegbu",
+                  "married": "",
+                  "spouse": "",
+                  "children": [
+                  
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Chief Mike Uchegbu",
+              "parent": "Chief MRS Nwaku Uchegbu",
+              "married": "+",
+              "spouse": "Dr. Mrs Obianuju N. Uchegbu",
+              "children": [
+                {
+                  "name": "Ms Adaobi Uchegbu",
+                  "parent": "Chief Mike Uchegbu",
+                  "married": "",
+                  "spouse": "",
+                  "children": [
+                  
+                  ]
+                },
+                {
+                  "name": "Mr Onyebuchi Uchegbu",
+                  "parent": "Chief Mike Uchegbu",
+                  "married": "",
+                  "spouse": "",
+                  "children": [
+                  
+                  ]
+                },
+                {
+                  "name": "Mr Chike Uchegbu",
+                  "parent": "Chief Mike Uchegbu",
+                  "married": "",
+                  "spouse": "",
+                  "children": [
+                  
+                  ]
+                },
+                {
+                  "name": "Mr Chiebonam Uchegbu",
+                  "parent": "Chief Mike Uchegbu",
+                  "married": "",
+                  "spouse": "",
+                  "children": [
+                  
+                  ]
+                },
+                {
+                  "name": "Mr Udemezue Uchegbu",
+                  "parent": "Chief Mike Uchegbu",
+                  "married": "",
+                  "spouse": "",
+                  "children": [
+                  
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Mrs Uzunma E. Ifedi",
+              "parent": "Chief MRS Nwaku Uchegbu",
+              "married": "+",
+              "spouse": "Mr Okey Ifedi",
+              "children": [
+                {
+                  "name": "Mr Enuma Ifedi",
+                  "parent": "Mrs Uzunma E. Ifedi",
+                  "married": "",
+                  "spouse": "",
+                  "children": [
+                  
+                  ]
+                },
+                {
+                  "name": "Mr Nonso Ifedi",
+                  "parent": "Mrs Uzunma E. Ifedi",
+                  "married": "",
+                  "spouse": "",
+                  "children": [
+                  
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Chief Samuel Onwunalike UCHEGBU",
+          "parent": "Chief Nwankwo UCHEGBU(Ogbambo Ego)",
+          "married": "+",
+          "spouse": "Mrs Adagu Uchegbu  +  Mrs Rose Uchegbu  +  Mrs Ojiugo Uchegbu",
+          "children": [
+            {
+              "name": "Mrs Adagu Uchegbu children",
+              "parent": "Chief Samuel Onwunalike UCHEGBU",
+              "married": "",
+              "spouse": "",
+              "children": [
+                {
+                  "name": "Mr Clement Uchegbu",
+                  "parent": "Mrs Adagu Uchegbu children",
+                  "married": "+",
+                  "spouse": "Mrs Ifeoma Uchegbu",
+                  "children": [
                     {
-                      "name": "Mr Clement Uchegbu",
-                      "parent": "Mrs Adagu Uchegbu children",
-                      "married": "+",
-                      "spouse": "Mrs Ifeoma Uchegbu",
-                      "children": [
-                        {
-                          "name": "MRS Nwaneka Uchegbu",
-                          "parent": "Mr Clement Uchegbu + Mrs Ifeoma Uchegbu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                            
-                          ]
-                        },
-                        {
-                          "name": "Mr Afamefuna Uchegbu",
-                          "parent": "Mr Clement Uchegbu + Mrs Ifeoma Uchegbu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                            
-                          ]
-                        },
-                        {
-                          "name": "Mrs Nkiruka Uchegbu",
-                          "parent": "Mr Clement Uchegbu + Mrs Ifeoma Uchegbu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                            
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "name": "Mrs Theresa Okakpu",
-                      "parent": "Mrs Adagu Uchegbu children",
-                      "married": "+",
-                      "spouse": "Mr Oduche Okakpu",
-                      "children": [
-                        {
-                          "name": "Mr Oduche Okakpu",
-                          "parent": "Mrs Theresa Okakpu + Mr Oduche Okakpu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                            
-                          ]
-                        },
-                        {
-                          "name": "Mr Charles Okakpu",
-                          "parent": "Mrs Theresa Okakpu + Mr Oduche Okakpu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                            
-                          ]
-                        },
-                        {
-                          "name": "Ms Adaobi Okakpu",
-                          "parent": "Mrs Theresa Okakpu + Mr Oduche Okakpu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                            
-                          ]
-                        },
-                        {
-                          "name": "Ms Ifeoma Okakpu",
-                          "parent": "Mrs Theresa Okakpu + Mr Oduche Okakpu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                            
-                          ]
-                        },
-                        {
-                          "name": "Ms Obianuju Okakpu",
-                          "parent": "Mrs Theresa Okakpu + Mr Oduche Okakpu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                            
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "name": "PROF Amaechi Uchegbumarried 3 wives",
-                      "parent": "Mrs Adagu Uchegbu children",
+                      "name": "MRS Nwaneka Uchegbu",
+                      "parent": "Mr Clement Uchegbu + Mrs Ifeoma Uchegbu",
                       "married": "",
                       "spouse": "",
                       "children": [
-                        {
-                          "name": "Mrs Uta Uchegbu",
-                          "parent": "PROF Amaechi Uchegbumarried 3 wives",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                            {
-                              "name": "Mr Osita Uchegbu",
-                              "parent": "Mrs Uta Uchegbu",
-                              "married": "",
-                              "spouse": "",
-                              "children": [
-                              ]
-                            },
-                            {
-                              "name": "Mr Dike Uchegbu",
-                              "parent": "Mrs Uta Uchegbu",
-                              "married": "",
-                              "spouse": "",
-                              "children": [
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "name": "Mrs Angela Uchegbu",
-                          "parent": "PROF Amaechi Uchegbumarried 3 wives",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                            {
-                              "name": "Ms Ijeoma Uchegbu",
-                              "parent": "Mrs Angela Uchegbu",
-                              "married": "",
-                              "spouse": "",
-                              "children": [
-                              ]
-                            },
-                            {
-                              "name": "Mr Ikemefuna Uchegbu",
-                              "parent": "Mrs Angela Uchegbu",
-                              "married": "",
-                              "spouse": "",
-                              "children": [
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "name": "Prof Mrs Ijeoma Uchegbu",
-                          "parent": "PROF Amaechi Uchegbumarried 3 wives",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                            {
-                              "name": "Ms Njideka Uchegbu",
-                              "parent": "Prof Mrs Ijeoma Uchegbu",
-                              "married": "",
-                              "spouse": "",
-                              "children": [
-                                
-                              ]
-                            },
-                            {
-                              "name": "Ms Ifeyinwa Uchegbu",
-                              "parent": "Prof Mrs Ijeoma Uchegbu",
-                              "married": "",
-                              "spouse": "",
-                              "children": [
-                                
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "name": "",
-                          "parent": "PROF Amaechi Uchegbumarried 3 wives",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                            {
-                              "name": "Mr Nnamdi Uchegbu",
-                              "parent": " ",
-                              "married": "",
-                              "spouse": "",
-                              "children": [
-                              ]
-                            }
-                          ]
-                        }
                         
                       ]
                     },
                     {
-                      "name": "Ms Bridget Uchegbu",
-                      "parent": "Mrs Adagu Uchegbu children",
+                      "name": "Mr Afamefuna Uchegbu",
+                      "parent": "Mr Clement Uchegbu + Mrs Ifeoma Uchegbu",
                       "married": "",
                       "spouse": "",
                       "children": [
@@ -551,83 +380,171 @@ var data = [
                       ]
                     },
                     {
-                      "name": "Mrs Veronica Okafor",
-                      "parent": "Mrs Adagu Uchegbu children",
+                      "name": "Mrs Nkiruka Uchegbu",
+                      "parent": "Mr Clement Uchegbu + Mrs Ifeoma Uchegbu",
                       "married": "",
                       "spouse": "",
                       "children": [
-                        {
-                          "name": "Mr Emmanuel Okaro",
-                          "parent": "Mrs Veronica Okafor",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                          ]
-                        },
-                        {
-                          "name": "Mr Patrick Uchegbu",
-                          "parent": "Mrs Veronica Okafor",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                          ]
-                        },
-                        {
-                          "name": "Mr Scholar Uchegbu",
-                          "parent": "Mrs Veronica Okafor",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                          ]
-                        },
-                        {
-                          "name": "Mr Kingsley Okafor",
-                          "parent": "Mrs Veronica Okafor",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                          ]
-                        },
-                        {
-                          "name": "Mrs Ebele Okafor",
-                          "parent": "Mrs Veronica Okafor",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                          ]
-                        },
-                        {
-                          "name": "Mr Charles Okafor",
-                          "parent": "Mrs Veronica Okafor",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "name": "Chief Sylvester Uchegbu",
-                      "parent": "Mrs Adagu Uchegbu children",
-                      "married": "+",
-                      "spouse": "Mrs Rose Uchegbu",
-                      "children": [
-                        {
-                          "name": "Mr Nkemakonam Uchegbu",
-                          "parent": "Chief Sylvester Uchegbu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                            
-                          ]
-                        }
+                        
                       ]
                     }
                   ]
                 },
                 {
-                  "name": "Mrs Rose Uchegbu chidren",
-                  "parent": "Chief Samuel Onwunalike UCHEGBU",
+                  "name": "Mrs Theresa Okakpu",
+                  "parent": "Mrs Adagu Uchegbu children",
+                  "married": "+",
+                  "spouse": "Mr Oduche Okakpu",
+                  "children": [
+                    {
+                      "name": "Mr Oduche Okakpu",
+                      "parent": "Mrs Theresa Okakpu + Mr Oduche Okakpu",
+                      "married": "",
+                      "spouse": "",
+                      "children": [
+                        
+                      ]
+                    },
+                    {
+                      "name": "Mr Charles Okakpu",
+                      "parent": "Mrs Theresa Okakpu + Mr Oduche Okakpu",
+                      "married": "",
+                      "spouse": "",
+                      "children": [
+                        
+                      ]
+                    },
+                    {
+                      "name": "Ms Adaobi Okakpu",
+                      "parent": "Mrs Theresa Okakpu + Mr Oduche Okakpu",
+                      "married": "",
+                      "spouse": "",
+                      "children": [
+                        
+                      ]
+                    },
+                    {
+                      "name": "Ms Ifeoma Okakpu",
+                      "parent": "Mrs Theresa Okakpu + Mr Oduche Okakpu",
+                      "married": "",
+                      "spouse": "",
+                      "children": [
+                        
+                      ]
+                    },
+                    {
+                      "name": "Ms Obianuju Okakpu",
+                      "parent": "Mrs Theresa Okakpu + Mr Oduche Okakpu",
+                      "married": "",
+                      "spouse": "",
+                      "children": [
+                        
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "PROF Amaechi Uchegbumarried 3 wives",
+                  "parent": "Mrs Adagu Uchegbu children",
+                  "married": "",
+                  "spouse": "",
+                  "children": [
+                    {
+                      "name": "Mrs Uta Uchegbu",
+                      "parent": "PROF Amaechi Uchegbumarried 3 wives",
+                      "married": "",
+                      "spouse": "",
+                      "children": [
+                        {
+                          "name": "Mr Osita Uchegbu",
+                          "parent": "Mrs Uta Uchegbu",
+                          "married": "",
+                          "spouse": "",
+                          "children": [
+                          ]
+                        },
+                        {
+                          "name": "Mr Dike Uchegbu",
+                          "parent": "Mrs Uta Uchegbu",
+                          "married": "",
+                          "spouse": "",
+                          "children": [
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Mrs Angela Uchegbu",
+                      "parent": "PROF Amaechi Uchegbumarried 3 wives",
+                      "married": "",
+                      "spouse": "",
+                      "children": [
+                        {
+                          "name": "Ms Ijeoma Uchegbu",
+                          "parent": "Mrs Angela Uchegbu",
+                          "married": "",
+                          "spouse": "",
+                          "children": [
+                          ]
+                        },
+                        {
+                          "name": "Mr Ikemefuna Uchegbu",
+                          "parent": "Mrs Angela Uchegbu",
+                          "married": "",
+                          "spouse": "",
+                          "children": [
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Prof Mrs Ijeoma Uchegbu",
+                      "parent": "PROF Amaechi Uchegbumarried 3 wives",
+                      "married": "",
+                      "spouse": "",
+                      "children": [
+                        {
+                          "name": "Ms Njideka Uchegbu",
+                          "parent": "Prof Mrs Ijeoma Uchegbu",
+                          "married": "",
+                          "spouse": "",
+                          "children": [
+                            
+                          ]
+                        },
+                        {
+                          "name": "Ms Ifeyinwa Uchegbu",
+                          "parent": "Prof Mrs Ijeoma Uchegbu",
+                          "married": "",
+                          "spouse": "",
+                          "children": [
+                            
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "",
+                      "parent": "PROF Amaechi Uchegbumarried 3 wives",
+                      "married": "",
+                      "spouse": "",
+                      "children": [
+                        {
+                          "name": "Mr Nnamdi Uchegbu",
+                          "parent": " ",
+                          "married": "",
+                          "spouse": "",
+                          "children": [
+                          ]
+                        }
+                      ]
+                    }
+                    
+                  ]
+                },
+                {
+                  "name": "Ms Bridget Uchegbu",
+                  "parent": "Mrs Adagu Uchegbu children",
                   "married": "",
                   "spouse": "",
                   "children": [
@@ -635,116 +552,201 @@ var data = [
                   ]
                 },
                 {
-                  "name": "Mrs Ojiugo Uchegbu children",
-                  "parent": "Chief Samuel Onwunalike UCHEGBU",
+                  "name": "Mrs Veronica Okafor",
+                  "parent": "Mrs Adagu Uchegbu children",
                   "married": "",
                   "spouse": "",
                   "children": [
                     {
-                      "name": "Ms Nwamaka Uchegbu",
-                      "parent": "Mrs Ojiugo Uchegbu children",
+                      "name": "Mr Emmanuel Okaro",
+                      "parent": "Mrs Veronica Okafor",
                       "married": "",
                       "spouse": "",
                       "children": [
-                        {
-                          "name": "Mr Izuchukwu Uchegbu",
-                          "parent": "Ms Nwamaka Uchegbu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                            
-                          ]
-                        }
                       ]
                     },
                     {
-                      "name": "Chief Nonso Uchegbu",
-                      "parent": "Mrs Ojiugo Uchegbu children",
-                      "married": "+",
-                      "spouse": "Mrs Ndirika Uchegbu",
+                      "name": "Mr Patrick Uchegbu",
+                      "parent": "Mrs Veronica Okafor",
+                      "married": "",
+                      "spouse": "",
                       "children": [
-                        {
-                          "name": "Mr Chibueze Uchegbu",
-                          "parent": "Chief Nonso Uchegbu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                            
-                          ]
-                        },
-                        {
-                          "name": "Mr Somtochukwu Uchegbu",
-                          "parent": "Chief Nonso Uchegbu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                            
-                          ]
-                        }
                       ]
                     },
                     {
-                      "name": "DR Mrs Okwuchukwu Otti",
-                      "parent": "Mrs Ojiugo Uchegbu children",
-                      "married": "+",
-                      "spouse": "Mr Daniel Otti",
+                      "name": "Mr Scholar Uchegbu",
+                      "parent": "Mrs Veronica Okafor",
+                      "married": "",
+                      "spouse": "",
+                      "children": [
+                      ]
+                    },
+                    {
+                      "name": "Mr Kingsley Okafor",
+                      "parent": "Mrs Veronica Okafor",
+                      "married": "",
+                      "spouse": "",
+                      "children": [
+                      ]
+                    },
+                    {
+                      "name": "Mrs Ebele Okafor",
+                      "parent": "Mrs Veronica Okafor",
+                      "married": "",
+                      "spouse": "",
+                      "children": [
+                      ]
+                    },
+                    {
+                      "name": "Mr Charles Okafor",
+                      "parent": "Mrs Veronica Okafor",
+                      "married": "",
+                      "spouse": "",
+                      "children": [
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Chief Sylvester Uchegbu",
+                  "parent": "Mrs Adagu Uchegbu children",
+                  "married": "+",
+                  "spouse": "Mrs Rose Uchegbu",
+                  "children": [
+                    {
+                      "name": "Mr Nkemakonam Uchegbu",
+                      "parent": "Chief Sylvester Uchegbu",
+                      "married": "",
+                      "spouse": "",
+                      "children": [
+                        
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Mrs Rose Uchegbu chidren",
+              "parent": "Chief Samuel Onwunalike UCHEGBU",
+              "married": "",
+              "spouse": "",
+              "children": [
+                
+              ]
+            },
+            {
+              "name": "Mrs Ojiugo Uchegbu children",
+              "parent": "Chief Samuel Onwunalike UCHEGBU",
+              "married": "",
+              "spouse": "",
+              "children": [
+                {
+                  "name": "Ms Nwamaka Uchegbu",
+                  "parent": "Mrs Ojiugo Uchegbu children",
+                  "married": "",
+                  "spouse": "",
+                  "children": [
+                    {
+                      "name": "Mr Izuchukwu Uchegbu",
+                      "parent": "Ms Nwamaka Uchegbu",
+                      "married": "",
+                      "spouse": "",
+                      "children": [
+                        
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Chief Nonso Uchegbu",
+                  "parent": "Mrs Ojiugo Uchegbu children",
+                  "married": "+",
+                  "spouse": "Mrs Ndirika Uchegbu",
+                  "children": [
+                    {
+                      "name": "Mr Chibueze Uchegbu",
+                      "parent": "Chief Nonso Uchegbu",
+                      "married": "",
+                      "spouse": "",
                       "children": [
                         
                       ]
                     },
                     {
-                      "name": "Mrs Ebele Udechukwu",
-                      "parent": "Mrs Ojiugo Uchegbu children",
-                      "married": "+",
-                      "spouse": "Mr Marshall Udechukwu",
+                      "name": "Mr Somtochukwu Uchegbu",
+                      "parent": "Chief Nonso Uchegbu",
+                      "married": "",
+                      "spouse": "",
                       "children": [
-                        {
-                          "name": "Mr Kenechukwu Udechukwu",
-                          "parent": "Mrs Ebele Udechukwu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                            
-                          ]
-                        },
-                        {
-                          "name": "Mr Ikechukwu Udechukwu",
-                          "parent": "Mrs Ebele Udechukwu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                            
-                          ]
-                        },
-                        {
-                          "name": "Mr Elochukwu Udechukwu",
-                          "parent": "Mrs Ebele Udechukwu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                            
-                          ]
-                        },
-                        {
-                          "name": "Mr Elochukwu Udechukwu",
-                          "parent": "Mrs Ebele Udechukwu",
-                          "married": "",
-                          "spouse": "",
-                          "children": [
-                            
-                          ]
-                        }
+                        
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "DR Mrs Okwuchukwu Otti",
+                  "parent": "Mrs Ojiugo Uchegbu children",
+                  "married": "+",
+                  "spouse": "Mr Daniel Otti",
+                  "children": [
+                    
+                  ]
+                },
+                {
+                  "name": "Mrs Ebele Udechukwu",
+                  "parent": "Mrs Ojiugo Uchegbu children",
+                  "married": "+",
+                  "spouse": "Mr Marshall Udechukwu",
+                  "children": [
+                    {
+                      "name": "Mr Kenechukwu Udechukwu",
+                      "parent": "Mrs Ebele Udechukwu",
+                      "married": "",
+                      "spouse": "",
+                      "children": [
+                        
+                      ]
+                    },
+                    {
+                      "name": "Mr Ikechukwu Udechukwu",
+                      "parent": "Mrs Ebele Udechukwu",
+                      "married": "",
+                      "spouse": "",
+                      "children": [
+                        
+                      ]
+                    },
+                    {
+                      "name": "Mr Elochukwu Udechukwu",
+                      "parent": "Mrs Ebele Udechukwu",
+                      "married": "",
+                      "spouse": "",
+                      "children": [
+                        
+                      ]
+                    },
+                    {
+                      "name": "Mr Elochukwu Udechukwu",
+                      "parent": "Mrs Ebele Udechukwu",
+                      "married": "",
+                      "spouse": "",
+                      "children": [
+                        
                       ]
                     }
                   ]
                 }
-                
               ]
             }
-        ]
-      }
-      ]
-      ;
+            
+          ]
+        }
+    ]
+  }
+  ]
+  ;
+}
 
 // var data = [
 //   {

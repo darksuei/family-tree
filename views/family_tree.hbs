@@ -4,6 +4,16 @@
         <title>{{title}}</title>
         <meta name="viewport" content="width=device-width">
         <link href="css/tree.css" rel="stylesheet">
+		<script>
+				let dataa = {{treeDetails}};
+				let agh = JSON.parse(dataa)
+				console.log(agh)
+				if (dataa){
+					console.log(dataa)
+				}else{
+					console.log("No data")
+				}
+			</script>
         <script crossorigin="anonymous" src="javascripts/d3.v4.js"></script>
         <meta charset="UTF-8">
     </head>
@@ -13,12 +23,12 @@
 				<ul>
 					<li><a href="/">Home</a></li>
 					<li><a href="/login">Login</a></li>
-					<li><a href="/display">Edit Tree</a></li>
+					<li><a href="/display">Edit Tree{{treeDetails.name}}</a></li>
 				</ul>
 			</nav>
 		</div>
         <div id="family_tree">
-            <script crossorigin="anonymous" src="javascripts/tree.js" data-data="{{ treeDetails }}">
+            <script crossorigin="anonymous" src="javascripts/tree.js">
 			</script>
             <script>
                 document.body.style.zoom = "3.5%";

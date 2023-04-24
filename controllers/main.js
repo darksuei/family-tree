@@ -73,7 +73,8 @@ module.exports.getData = async function (req,res){
   let searchstr = req.query.search;
   var treeDetails = await Tree.findOne({name:searchstr},{'_id': false, '__v': false});
   var data = { title: 'Family Tree', treeDetails: treeDetails};
-  res.render(path.join(__dirname,'..','views','family_tree'), data);
+  // res.json(data)
+  res.render(path.join(__dirname,'..','views','family_tree'), { title: 'Family Tree', treeDetails: treeDetails});
   // res.send(data)
 }
 
@@ -81,7 +82,7 @@ module.exports.family_tree_search = async function(req, res) {
   let searchstr = req.body.search;
   var treeDetails = await Tree.findOne({name:searchstr},{'_id': false, '__v': false});
   // res.send(treeDetails)
-  res.render(path.join(__dirname,'..','views','family_tree'), { title: 'Family Tree', treeDetails: treeDetails});
+  res.render(path.join(__dirname,'..','views','family_tree'), { title: 'Family Tree', treeDetails: JSON.stringify(treeDetails)});
 }
 
 module.exports.login = function(req, res) {
