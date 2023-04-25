@@ -1,31 +1,6 @@
 let path = require('path')
 const Tree = require('../models/treemodel')
 
-// const constructobj = (obj)=>{
-//   const one = {}
-//   let two = one
-//   while(obj.length>0){
-//     const val = obj[0]
-//     obj.shift()
-//     if(Array.isArray(val)){
-//       for(let i=0;i<val.length;i++){
-//         if(val[i]==""){
-//           break
-//         }
-//         two.father = val[i]
-//         two.son = {}
-//         two = two.son
-        
-//       }
-//     }else{
-//       two.father = val
-//       two.son = {}
-//       two = two.son
-//     }
-//   };
-//   return one
-// }
-
 //FUNCTION FOR NESTING THE INPUT IN JSON FORMAT
 const constructobj = (obj)=>{
   const one = {}
@@ -65,10 +40,6 @@ module.exports.index = function(req, res) {
   res.render(path.join(__dirname,'..','views','index'), { title: 'Family Tree' });
 }  
 
-module.exports.family_tree = function(req, res) {
-  res.render(path.join(__dirname,'..','views','family_tree'), { title: 'Family Tree' });
-}
-
 module.exports.family_tree_search = async function(req, res) {
   const url = req.originalUrl;
   console.log(url);
@@ -95,7 +66,7 @@ res.render(path.join(__dirname,'..','views','login'), { title: 'Family tree Logi
 }
 
 module.exports.register = function(req, res) {
-res.render(path.join(__dirname,'..','views','registration'), { title: 'Registration' });
+res.render(path.join(__dirname,'..','views','registration'), { title: 'Family Tree Register' });
 }
 
 module.exports.display = function(req, res) {
@@ -116,7 +87,3 @@ module.exports.display = function(req, res) {
     res.render(path.join(__dirname,'..','views','dataInput'));
   }
   }
-
-  module.exports.inputform = function(req, res) {
-    res.render(path.join(__dirname,'..','views','jsondisplay'), { title: 'Family Tree' });
-    }

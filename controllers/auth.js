@@ -63,7 +63,7 @@ const signIn = async (req, res) => {
 //       message: "Something went wrong!",
 //    });
 //   }
-         res.render('family_tree')
+         res.render('index',{ message: "Sucessfully logged in!" })
  } else {
    res.status(StatusCodes.BAD_REQUEST).json({
        message: "User does not exist..!",

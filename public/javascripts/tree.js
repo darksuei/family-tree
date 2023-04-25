@@ -1,8 +1,6 @@
 var height = 29000;
 var width = 150000; 
 
-var heading = "THE UCHEGBU'S FAMILY TREE"
-
 var margin = {left: 50,right:50,top:2000,bottom:0};
 
 var tree = d3.tree().size([width,height]);
@@ -795,6 +793,8 @@ var chartGroup = svg.append('g').attr('transform','translate('+margin.left+','+m
 // }
 // ];
 setTimeout(()=>{
+  var heading = gdata.treeDetails.name + "'s family tree"
+  heading = heading.toUpperCase()
   let mdata = gdata.treeDetails;
   let data =[]
   data.push(mdata)
@@ -900,4 +900,4 @@ setTimeout(()=>{
                 
     
     
-},1500);
+},500);

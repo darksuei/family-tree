@@ -20,9 +20,13 @@ body{
 }
 
 #container{
+    margin-top: 5%;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
 
 #family_tree{
@@ -44,8 +48,8 @@ body{
 }
 
 p{
-    font-size: 0px;
-    color: blue;
+    font-size: 12px;
+    color: white;
 }
 
 div{
@@ -56,13 +60,13 @@ div{
 
 h1{
     font-size: 500%;
-    margin: 10px;
+    margin: 5px;
 }
 
 
 h4{
     font-size: 200%;
-    margin: 15px;
+    margin: 5px;
 }
 
 #a-wrapper{
@@ -80,9 +84,9 @@ a{
     text-decoration: none;
     border: 1px solid white;
     border-radius: 180px;
-    padding: 7px;
+    padding: 5px;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 
@@ -108,7 +112,7 @@ path {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 30px auto;
+    margin: 20px auto 10px;
 }
 
 #container form input {

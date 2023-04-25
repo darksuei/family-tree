@@ -11,23 +11,24 @@
 			<nav>
 				<ul>
 					<li><a href="/">Home</a></li>
+          <li><a href="/register">Register</a></li>
 					<li><a href="/login">Login</a></li>
-					<li><a href="/display">Edit Tree</a></li>
+					<li><a href="/edit_tree">Edit Tree</a></li>
 				</ul>
 			</nav>
 		</div>
     <div id="container">
         <h1 >The <span id="family_name">family</span>'s</h1>
         <h4>FAMILY TREE</h4>
-        <p class="info">Documenting generations and more to come</p>
         <div id="a-wrapper">
-          <a href="/family_tree" class="btn">Click here to view</a>
+          <a href="/uchegbu_family_tree" class="btn">Click here to view</a>
           <a href="/login" class="btn">Login</a>
         </div>
         <form method="get" action="/family_tree_search">
             <i class="fas fa-search"></i>
-                <input type="text" onkeyup="search()" name="search" id="search-name" placeholder="Search Family Name"/>
+                <input type="text" onkeyup="search()" name="search" id="search-name" placeholder="Search by Family Name"/>
         </form>
+        <p class="info"><em>documenting generations and more to come..</em></p>
     </div>
     <script>
       document.body.style.zoom = "100%";

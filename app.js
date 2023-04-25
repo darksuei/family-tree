@@ -10,11 +10,9 @@ var cors = require("cors");
 
 var authRouter = require('./routes/auth');
 var indexRouter = require('./routes/index');
-var treeRouter = require('./routes/family_tree');
 var loginRouter = require('./routes/login');
 var registerRouter = require('./routes/register');
-var displayRouter = require('./routes/display');
-var inputformRouter = require('./routes/inputform');
+var editRouter = require('./routes/display');
 var getdataRouter = require('./routes/getData');
 var defaulttreeRouter = require('./routes/default_family_tree');
 var treesearchRouter = require('./routes/family_tree_search');
@@ -34,12 +32,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('public'));
 
 app.use('/', indexRouter);
-app.use('/', treeRouter);
 app.use('/', loginRouter);
 app.use('/', registerRouter);
 app.use('/', authRouter);
-app.use('/', displayRouter);
-app.use('/', inputformRouter);
+app.use('/', editRouter);
 app.use('/', getdataRouter);
 app.use('/', defaulttreeRouter);
 app.use('/', treesearchRouter);

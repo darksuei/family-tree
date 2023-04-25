@@ -80,31 +80,30 @@ function addInput() {
     addNode.addEventListener("click", createNode);
 };
 
-
+var k = 0;
 // function to add node
 function createNode() {
-    var k = 0;
+    var i = 0;
     var l = 0;
-
-
     const deleteNode = document.createElement("a");
     deleteNode.className = "deleteNode";
     deleteNode.innerHTML = "&times";
 
     const containerNew = document.createElement("div");
-    containerNew.className = "container " + (i);
+    containerNew.className = `container ${i}`;
+    containerNew.id = `generation${k}`;
 
     const wrap = document.createElement("div");
     wrap.className = "wrap";
 
     const title = document.createElement("h2");
-    title.innerHTML = "Input Family Info";
+    title.innerHTML = "Input Family Child";
 
     const addSignNew = document.createElement("a");
     addSignNew.className = "addNew";
     addSignNew.innerHTML = "&plus;";
+    k++;
     // creating elements
-    let i2 = 0;
     for (var i = 0; i < 5; i++) {
         window['name' + i] = document.createElement("input");
         window['name' + i].type = "text";
@@ -128,7 +127,6 @@ function createNode() {
         window['flex' + i].className = "flex" + 1;
 
         console.log(window['flex' + i]);
-        i2++;
     }
 
 
@@ -161,6 +159,7 @@ function createNode() {
 
 
 };
+
 
 // addbtn.addEventListener("click", addInput);
 
