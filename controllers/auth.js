@@ -27,17 +27,21 @@ const signUp = async (req, res) => {
      });
   } else {
      User.create(userData).then((data, err) => {
-     if (err) res.status(StatusCodes.BAD_REQUEST).json({ err });
-     else
-       res
-        .status(StatusCodes.CREATED)
-        .json({ message: "User created Successfully" });
+     if (err){
+      res.status(StatusCodes.BAD_REQUEST).json({ err });
+     }
+     else{
+      res
+      .status(StatusCodes.CREATED)
+      .json({ message: "User created Successfully" });
+     }
      });
     }
 };
 
 
 const signIn = async (req, res) => {
+   // var loggedIn =  false;
    try {
       if (!req.body.lastName || !req.body.password) {
          res.status(StatusCodes.BAD_REQUEST).json({
@@ -63,7 +67,8 @@ const signIn = async (req, res) => {
 //       message: "Something went wrong!",
 //    });
 //   }
-         res.render('index',{ message: "Sucessfully logged in!" })
+         var loggedIn = true;
+         res.render('index',{ message: "Sucessfully logged in!", loggedIn: true})
  } else {
    res.status(StatusCodes.BAD_REQUEST).json({
        message: "User does not exist..!",
@@ -72,5 +77,6 @@ const signIn = async (req, res) => {
  } catch (error) {
     res.status(StatusCodes.BAD_REQUEST).json({ error });
    }
- };
- module.exports = { signUp, signIn};
+};
+ 
+module.exports = { signUp, signIn };

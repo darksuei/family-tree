@@ -78,12 +78,12 @@ module.exports.display = function(req, res) {
       tree.save().then(()=>{
         console.log("works")
         res.status(200);
-        res.render(path.join(__dirname,'..','views','dataInput'));
+        res.render(path.join(__dirname,'..','views','dataInput', {title: 'Edit Family Tree'}));
       }).catch((error)=>{
         console.log(error)
       res.status(400).send(error);
     })}else{
     res.status(201)
-    res.render(path.join(__dirname,'..','views','dataInput'));
+    res.render(path.join(__dirname,'..','views','dataInput'),{title: 'Edit Family Tree'});
   }
   }

@@ -11,7 +11,7 @@ const {
 router.route("/login").post(validateSignUpRequest, isRequestValidated, signUp);
 
 
-router.route("/x").post(validateSignIpRequest, isRequestValidated, signIn);
-
+router.route("/").post(validateSignIpRequest, isRequestValidated, signIn);
+ 
 
 module.exports = router;

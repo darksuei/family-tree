@@ -11,8 +11,12 @@
 			<nav>
 				<ul>
 					<li><a href="/">Home</a></li>
-          <li><a href="/register">Register</a></li>
-					<li><a href="/login">Login</a></li>
+					{{#if loggedIn}}
+            
+          {{else}}
+            <li><a href="/register">Register</a></li>
+            <li><a href="/login">Login</a></li>
+          {{/if}}
 					<li><a href="/edit_tree">Edit Tree</a></li>
 				</ul>
 			</nav>
@@ -22,7 +26,10 @@
         <h4>FAMILY TREE</h4>
         <div id="a-wrapper">
           <a href="/uchegbu_family_tree" class="btn">Click here to view</a>
-          <a href="/login" class="btn">Login</a>
+          {{#if loggedIn}}
+          {{else}}
+            <a href="/login" class="btn">Login</a>
+          {{/if}}
         </div>
         <form method="get" action="/family_tree_search">
             <i class="fas fa-search"></i>
