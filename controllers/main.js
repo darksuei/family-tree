@@ -70,7 +70,7 @@ res.render(path.join(__dirname,'..','views','registration'), { title: 'Family Tr
 }
 
 module.exports.display = function(req, res) {
-  if(req.method === 'GET'){
+  if(req.method === 'post'){
     console.log(req.query)
       const tree = new Tree(
         constructobj(Object.values(req.query))
