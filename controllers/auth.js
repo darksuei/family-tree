@@ -29,7 +29,7 @@ const signUp = async (req, res) => {
      }
      else{
       res
-      .status(StatusCodes.CREATED).render('login',{ message: "User created Successfully", alerttype: "success"});
+      .status(StatusCodes.CREATED).render('login',{ message: "User created Successfully", alerttype: "success", success : "success"});
      }
      });
     }
@@ -62,7 +62,7 @@ const signIn = async (req, res) => {
 //    });
 //   }
          var loggedIn = true;
-         res.render('index',{ message: "Sucessfully logged in!", loggedIn: true, alerttype: "success"})
+         res.render('index',{ message: "Sucessfully logged in!", loggedIn: true, alerttype: "success", success : "success"})
  } else {
    res.status(StatusCodes.BAD_REQUEST).render('login',{ message: "Invalid Login Details!", alerttype: "warning"});
  }

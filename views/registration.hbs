@@ -54,7 +54,11 @@
 		<div class="row">
 			<div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
 				<!-- start: REGISTER BOX -->
+				{{#if success}}
 				<form class="box-register" action="/login" method="post">
+				{{else}}
+				<form class="box-register" action="/register" method="post">
+				{{/if}}
 					<div id="header">Create a Family Account</div>
 					{{#if message}}
 						<div class="alert alert-{{alerttype}} text-center show" id="fadeDiv" role="alert">

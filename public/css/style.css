@@ -186,12 +186,16 @@ path {
     color: #000;
     text-shadow: 0 1px 0 #fff;
     opacity: .5;
+    border: none;
+    outline: none;
+    background-color: transparent;
   }
   
   .close:hover {
     color: #000;
     text-decoration: none;
     opacity: .75;
+    cursor: pointer;
   }
   
   .close:not(:disabled):not(.disabled):focus {
