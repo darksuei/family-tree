@@ -13,17 +13,6 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/plugins.css">
     <link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
-    <script>
-  var fadeButton = document.getElementById('fadeButton');
-      var fadeDiv = document.getElementById('fadeDiv');
-      fadeButton.addEventListener('click', function() {
-        fadeDiv.style.display = 'none';
-  });
-  setTimeout(()=>{
-    fadeDiv.style.display = 'none';
-  },3000);
-</script>
-
      <style type="text/css">
     body{ 
         background-image: url('img/background.jpg');      
@@ -113,5 +102,15 @@
 </div>
 </div>
 </div>
+<script>
+  var fadeButton = document.getElementById('fadeButton');
+      var fadeDiv = document.getElementById('fadeDiv');
+      fadeButton.addEventListener('click', function() {
+        fadeDiv.classList.add('fade')
+  });
+  setTimeout(()=>{
+    fadeDiv.classList.add('fade')
+  },3000);
+</script>
 </body>
 </html>

@@ -97,5 +97,14 @@
 		</div>
 	</div>
 </body>
-
+<script>
+  var fadeButton = document.getElementById('fadeButton');
+      var fadeDiv = document.getElementById('fadeDiv');
+      fadeButton.addEventListener('click', function() {
+		fadeDiv.classList.add('fade')
+  });
+  setTimeout(()=>{
+    fadeDiv.classList.add('fade')
+  },3000);
+</script>
 </html>
