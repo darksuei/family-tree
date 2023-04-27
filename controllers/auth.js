@@ -7,9 +7,7 @@ const shortid = require("shortid");
 const signUp = async (req, res) => {
   const { firstName, lastName, password } = req.body;
   if (!firstName || !lastName || !password) {
-     return res.status(StatusCodes.BAD_REQUEST).json({
-        message: "Please Provide Password",
-     });
+     return res.status(StatusCodes.BAD_REQUEST).render('registration',{ message: "Please provide password", alerttype: "warning"});
   }
   var pw = password
   const hash_password = await bcrypt.hash(pw, 10);
@@ -22,18 +20,16 @@ const signUp = async (req, res) => {
 
   const user = await User.findOne({ lastName });
   if (user) {
-     return res.status(StatusCodes.BAD_REQUEST).json({
-        message: "Last Name already registered",
-     });
+     return res.status(StatusCodes.BAD_REQUEST).render('registration',{ message: "Last Name already exists!", alerttype: "warning"});
   } else {
      User.create(userData).then((data, err) => {
      if (err){
-      res.status(StatusCodes.BAD_REQUEST).json({ err });
+      console.log(err)
+      res.status(StatusCodes.BAD_REQUEST).render('registration',{ message: "An Error Occurred!", alerttype: "warning"});
      }
      else{
       res
-      .status(StatusCodes.CREATED)
-      .json({ message: "User created Successfully" });
+      .status(StatusCodes.CREATED).render('login',{ message: "User created Successfully", alerttype: "success"});
      }
      });
     }

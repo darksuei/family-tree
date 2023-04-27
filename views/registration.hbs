@@ -56,6 +56,12 @@
 				<!-- start: REGISTER BOX -->
 				<form class="box-register" action="/login" method="post">
 					<div id="header">Create a Family Account</div>
+					{{#if message}}
+						<div class="alert alert-{{alerttype}} text-center show" id="fadeDiv" role="alert">
+							{{message}}
+							<button type="button" class="close" data-dismiss="alert" id="fadeButton"><span aria-hidden="true">&times;</span></button>
+						</div>
+					{{/if}}
 					<div class="form-group">
 						<label>Firstname:</label>
 						<input style="width:100%" type="text" name="firstName" />
@@ -90,8 +96,6 @@
 			</div>
 		</div>
 	</div>
-
 </body>
-<!-- end: BODY -->
 
 </html>
