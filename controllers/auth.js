@@ -44,9 +44,7 @@ const signIn = async (req, res) => {
    // var loggedIn =  false;
    try {
       if (!req.body.lastName || !req.body.password) {
-         res.status(StatusCodes.BAD_REQUEST).json({
-            message: "Please enter last name and password",
-         });
+         res.status(StatusCodes.BAD_REQUEST).render('login',{ message: "Please enter valid name and password", alerttype: "warning"});
       }
       
       const user = await User.findOne({ lastName: req.body.lastName });
@@ -68,14 +66,14 @@ const signIn = async (req, res) => {
 //    });
 //   }
          var loggedIn = true;
-         res.render('index',{ message: "Sucessfully logged in!", loggedIn: true})
+         res.render('index',{ message: "Sucessfully logged in!", loggedIn: true, alerttype: "success"})
  } else {
-   res.status(StatusCodes.BAD_REQUEST).json({
-       message: "User does not exist..!",
-   });
+   res.status(StatusCodes.BAD_REQUEST).render('login',{ message: "Invalid Login Details!", alerttype: "warning"});
  }
  } catch (error) {
-    res.status(StatusCodes.BAD_REQUEST).json({ error });
+    console.log(error)
+    res.status(StatusCodes.BAD_REQUEST).render('login',{ message: "An Error Occurred!", alerttype: "warning"});
+
    }
 };
  
