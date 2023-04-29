@@ -18,7 +18,7 @@ This is a web application that allows users to input their family tree and view 
 </ul>
 
 <h2>Installation</h2>
-<ol>
+<ol type="1">
 <li>Clone the repository:
 git clone https://github.com/your-username/family-tree-web-app.git
 cd family-tree-web-app
@@ -27,7 +27,7 @@ cd family-tree-web-app
 npm install
   </li>
 <li>Create a .env file in the root directory and add the following:
-  <ol>
+  <ol type="1">
     <li>PORT=3000</li>
     <li>MONGODB_URI=mongodb://localhost/family-tree-web-app</li>
     <li>SESSION_SECRET=your_session_secret</li>
@@ -40,7 +40,7 @@ npm start
 The application should now be running on http://localhost:3000.
 
 <h2>Usage</h2>
-<ol>
+<ol type="1">
 <li>Sign up for an account.</li>
 <li>Sign in to access the application's features.</li>
 <li>Input your family tree using the form provided.</li>
@@ -48,7 +48,7 @@ The application should now be running on http://localhost:3000.
 </ol>
 <h2>Contributing</h2>
   <p>Contributions to this project are welcome. To contribute:</p>
-<ol>
+<ol type="1">
 <li>Fork the repository.</li>
 <li>Create a new branch for your changes.</li>
 <li>Make your changes and commit them with descriptive commit messages.</li>
