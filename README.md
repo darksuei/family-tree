@@ -20,11 +20,12 @@ This is a web application that allows users to input their family tree and view 
 <h2>Installation</h2>
 <ol type="1">
 <li>Clone the repository:
-git clone https://github.com/your-username/family-tree-web-app.git
-cd family-tree-web-app
+  <ul>
+    <li><b>git clone https://github.com/your-username/family-tree-web-app.git</b></li>
+    <li><b>cd family-tree-web-app</b></li>
   </li>
 <li>Install the dependencies:
-npm install
+  <b>npm install</b>
   </li>
 <li>Create a .env file in the root directory and add the following:
   <ol type="I">
@@ -34,7 +35,7 @@ npm install
 Replace your_session_secret with a random string that will be used to sign session cookies.
   </li>
 <li>Start the application:
-npm start
+<b>npm start</b>
   </li>
   </ol>
 The application should now be running on <a href="http://localhost:3000">http://localhost:3000</a>.
@@ -56,7 +57,7 @@ The application should now be running on <a href="http://localhost:3000">http://
 <li>Create a pull request to merge your changes into the main repository.</li>
 </ol>
 <h2>License</h2>
-This project is licensed under the MIT License.
+This project is licensed under the <a href="https://opensource.org/licenses/">MIT License</a>.
 
 
 
