@@ -44,6 +44,12 @@
 			justify-content: flex-end;
 			align-items: center;
 		}
+		.fade {
+			opacity: 0;
+			transition: opacity 0.2s linear;
+			display: none !important;
+			height: 0;
+		}
 	</style>
 </head>
 
@@ -102,13 +108,13 @@
 	</div>
 </body>
 <script>
-  var fadeButton = document.getElementById('fadeButton');
-      var fadeDiv = document.getElementById('fadeDiv');
-      fadeButton.addEventListener('click', function() {
+	var fadeButton = document.getElementById('fadeButton');
+	var fadeDiv = document.getElementById('fadeDiv');
+    fadeButton.addEventListener('click', function() {
 		fadeDiv.classList.add('fade')
   });
-  setTimeout(()=>{
-    fadeDiv.classList.add('fade')
-  },3000);
+  	setTimeout(()=>{
+		fadeDiv.classList.add('fade')
+	},3000);
 </script>
 </html>

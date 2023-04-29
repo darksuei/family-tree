@@ -51,11 +51,11 @@
       var fadeButton = document.getElementById('fadeButton');
       var fadeDiv = document.getElementById('fadeDiv');
       fadeButton.addEventListener('click', function() {
-        fadeDiv.style.display = 'none';
+        fadeDiv.classList.add('fade')
   });
-  
+
   setTimeout(()=>{
-    fadeDiv.style.display = 'none';
+    fadeDiv.classList.add('fade')
   },3000);
 
   function confirmLogout() {
