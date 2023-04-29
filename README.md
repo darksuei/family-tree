@@ -23,6 +23,7 @@ This is a web application that allows users to input their family tree and view 
   <ul>
     <li><b>git clone https://github.com/your-username/family-tree-web-app.git</b></li>
     <li><b>cd family-tree-web-app</b></li>
+    </ul>
   </li>
 <li>Install the dependencies:
   <b>npm install</b>
