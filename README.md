@@ -13,8 +13,8 @@ This is a web application that allows users to input their family tree and view 
 <h2>Requirements</h2>
 <p>To run this application, you will need to have the following installed on your system:</p>
 <ul>
-<li>Node.js (v12 or later)</li>
-<li>MongoDB</li>
+<li><b>Node.js (v12 or later)</b></li>
+  <li><b>MongoDB</b></li>
 </ul>
 
 <h2>Installation</h2>
@@ -29,10 +29,10 @@ This is a web application that allows users to input their family tree and view 
   </li>
 <li>Create a .env file in the root directory and add the following:
   <ol type="I">
-    <li>PORT=3000</li>
-    <li>MONGODB_URI=mongodb://localhost/family-tree-web-app</li>
-    <li>SESSION_SECRET=your_session_secret</li>
-Replace your_session_secret with a random string that will be used to sign session cookies.
+    <li><b>PORT=3000</b></li>
+    <li><b>MONGODB_URI=mongodb://localhost/family-tree-web-app</b></li>
+    <li><b>SESSION_SECRET=your_session_secret</b></li>
+    <em>Replace your_session_secret with a random string that will be used to sign session cookies.</em>
   </li>
 <li>Start the application:
 <b>npm start</b>
