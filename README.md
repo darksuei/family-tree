@@ -27,7 +27,7 @@ cd family-tree-web-app
 npm install
   </li>
 <li>Create a .env file in the root directory and add the following:
-  <ol type="1">
+  <ol type="I">
     <li>PORT=3000</li>
     <li>MONGODB_URI=mongodb://localhost/family-tree-web-app</li>
     <li>SESSION_SECRET=your_session_secret</li>
@@ -37,7 +37,7 @@ Replace your_session_secret with a random string that will be used to sign sessi
 npm start
   </li>
   </ol>
-The application should now be running on http://localhost:3000.
+The application should now be running on <a href="http://localhost:3000">http://localhost:3000</a>.
 
 <h2>Usage</h2>
 <ol type="1">
