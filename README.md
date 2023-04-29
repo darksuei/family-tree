@@ -1,4 +1,3 @@
-# family-tree
 <h1> Family Tree </h1>
 This is a web application that allows users to input their family tree and view others. Users can sign up and sign in to access the application's features. The application is built using JavaScript, D3, Express, and MongoDB.
 
@@ -28,11 +27,10 @@ cd family-tree-web-app
 npm install
   </li>
 <li>Create a .env file in the root directory and add the following:
-makefile
-Copy code
-PORT=3000
-MONGODB_URI=mongodb://localhost/family-tree-web-app
-SESSION_SECRET=your_session_secret
+  <ol>
+    <li>PORT=3000</li>
+    <li>MONGODB_URI=mongodb://localhost/family-tree-web-app</li>
+    <li>SESSION_SECRET=your_session_secret</li>
 Replace your_session_secret with a random string that will be used to sign session cookies.
   </li>
 <li>Start the application:
@@ -42,19 +40,22 @@ npm start
 The application should now be running on http://localhost:3000.
 
 <h2>Usage</h2>
-Sign up for an account.
-Sign in to access the application's features.
-Input your family tree using the form provided.
-View your family tree as well as others by searching for them by name.
-Contributing
-Contributions to this project are welcome. To contribute:
-
-Fork the repository.
-Create a new branch for your changes.
-Make your changes and commit them with descriptive commit messages.
-Push your changes to your fork.
-Create a pull request to merge your changes into the main repository.
-License
+<ol>
+<li>Sign up for an account.</li>
+<li>Sign in to access the application's features.</li>
+<li>Input your family tree using the form provided.</li>
+<li>View your family tree as well as others by searching for them by name.</li>
+</ol>
+<h2>Contributing</h2>
+  <p>Contributions to this project are welcome. To contribute:</p>
+<ol>
+<li>Fork the repository.</li>
+<li>Create a new branch for your changes.</li>
+<li>Make your changes and commit them with descriptive commit messages.</li>
+<li>Push your changes to your fork.</li>
+<li>Create a pull request to merge your changes into the main repository.</li>
+</ol>
+<h2>License</h2>
 This project is licensed under the MIT License.
 
 
