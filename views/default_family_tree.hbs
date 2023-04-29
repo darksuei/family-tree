@@ -12,9 +12,13 @@
 			<nav>
 				<ul>
 					<li><a href="/">Home</a></li>
-					<li id="regli"><a href="/register">Register</a></li>
-					<li id="loginli"><a href="/login">Login</a></li>
-					<li><a href="/edit_tree">Edit Tree</a></li>
+					{{#if data.user}}
+						<li><a href="/logout">Logout</a></li>
+						<li><a href="/edit_tree">Edit Tree</a></li>
+					{{else}}
+						<li><a href="/register">Register</a></li>
+						<li><a href="/login">Login</a></li>
+					{{/if}}
 				</ul>
 			</nav>
 		</div>
@@ -64,6 +68,5 @@
 	// ]]>
 </script>
         </div>
-		<script src="javascripts/random.js"></script>
     </body>
 </html>

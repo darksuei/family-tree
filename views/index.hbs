@@ -12,12 +12,12 @@
 				<ul>
 					<li><a href="/">Home</a></li>
 					{{#if loggedIn}}
-            
+            <li><a href="/logout" onclick="confirmLogout()">Logout</a></li>
+            <li><a href="/edit_tree">Edit Tree</a></li>
           {{else}}
             <li><a href="/register">Register</a></li>
             <li><a href="/login">Login</a></li>
           {{/if}}
-					<li><a href="/edit_tree">Edit Tree</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -53,13 +53,18 @@
       fadeButton.addEventListener('click', function() {
         fadeDiv.style.display = 'none';
   });
+  
   setTimeout(()=>{
     fadeDiv.style.display = 'none';
   },3000);
-  var isloggedin = {{loggedIn}};
-  console.log(isloggedin);
+
+  function confirmLogout() {
+  if (confirm('Are you sure you want to log out?')) {
+    window.location.href = '/logout';
+  }
+}
+
     </script>
-    <script src="javascripts/random.js"></script>
     <!--<script src="src/index.js"></script>-->
   </body>
 </html>

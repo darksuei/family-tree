@@ -58,11 +58,22 @@ module.exports.getData = async function (req,res){
 }
 
 module.exports.default_tree = async function (req,res){
-  res.render(path.join(__dirname,'..','views','default_family_tree'), { title: 'Family Tree' });
+  const data = req.session.data;
+  res.render(path.join(__dirname,'..','views','default_family_tree'), { title: 'Family Tree', data: data });
 }
 
 module.exports.login = function(req, res) {
 res.render(path.join(__dirname,'..','views','login'), { title: 'Family tree Login' });
+}
+
+module.exports.logout = function(req, res) {
+  req.session.destroy((err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render(path.join(__dirname,'..','views','index'), { title: 'Family Tree', message: 'Successfully logged out!', alerttype: "success" });
+    }
+  });
 }
 
 module.exports.register = function(req, res) {

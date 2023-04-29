@@ -37,7 +37,6 @@ const signUp = async (req, res) => {
 
 
 const signIn = async (req, res) => {
-   // var loggedIn =  false;
    try {
       if (!req.body.lastName || !req.body.password) {
          res.status(StatusCodes.BAD_REQUEST).render('login',{ message: "Please enter valid name and password", alerttype: "warning"});
@@ -62,6 +61,7 @@ const signIn = async (req, res) => {
 //    });
 //   }
          var loggedIn = true;
+         req.session.data = {loggedIn : loggedIn, user : user}
          res.render('index',{ message: "Sucessfully logged in!", loggedIn: true, alerttype: "success", success : "success"})
  } else {
    res.status(StatusCodes.BAD_REQUEST).render('login',{ message: "Invalid Login Details!", alerttype: "warning"});
