@@ -1,120 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<link
-		href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic"
-		rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="vendor/themify-icons/themify-icons.min.css">
-	<link href="vendor/animate.css/animate.min.css" rel="stylesheet" media="screen">
-	<link href="vendor/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet" media="screen">
-	<link href="vendor/switchery/switchery.min.css" rel="stylesheet" media="screen">
-	<link rel="stylesheet" href="assets/css/styles.css">
-	<link rel="stylesheet" href="assets/css/plugins.css">
-	<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
-
-	<style type="text/css">
-		body {
-			background-image: url('img/background.jpg');
-			background-repeat: no-repeat;
-			background-size: cover;
-		}
-		#header{
-			color: black;
-			width: 100%;
-			text-align: center;
-			font-size: 24px;
-			font-weight: 500;
-		}
-		.reg {
-			border-radius: 30px;
-		}
-		form .form-group input{
-			outline: none;
-		}
-		.text-center{
-			text-decoration: underline;
-		}
-		.submitbtn{
-			margin-bottom: 0;
-			width: 100%;
-			display: flex;
-			justify-content: flex-end;
-			align-items: center;
-		}
-		.fade {
-			opacity: 0;
-			transition: opacity 0.2s linear;
-			display: none !important;
-			height: 0;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/output.css" rel="stylesheet">
+    <title>{{title}}</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
-
 <body>
-	<br><br>
-	{{!-- <h4 style="color: red; text-align: center;">Welcome !!</h4> --}}
-	<div class="box-register">
-		<div class="row">
-			<div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
-				<!-- start: REGISTER BOX -->
-				{{#if success}}
-				<form class="box-register" action="/login" method="post">
-				{{else}}
-				<form class="box-register" action="/register" method="post">
-				{{/if}}
-					<div id="header">Create a Family Account</div>
+    <div class=" grid grid-flow-row ">
+        <!-- Navbar -->
+        <div class="bg-primary1 text-white grid grid-flow-row">
+            <div class="grid grid-flow-col grid-cols-4 h-24 px-10">
+                <div class="grid grid-flow-col col-span-2 items-center">
+                    <img src="/img/logo.png" alt="">
+                    <ul class="grid grid-flow-col">
+                        <li class="transition hover:underline"><a href="/">Home</a></li>
+                        <li class="transition hover:underline"><a href="/about">About Us</a></li>
+                        <li class="transition hover:underline"><a href="/about">Learn More</a></li>
+                    </ul>
+                </div>
+                <div></div>
+                <div class="grid grid-flow-col pl-4 items-center">
+                    <a href="/login" class="bg-white rounded-md text-primary1 h-9 w-44 text-center my-auto">Login</>
+                    <a class="" href="/register">Sign Up</a>
+                </div>
+            </div>
+            <div class="bg-primary2 grid grid-flow-col justify-center">
+                <img class="" src="/img/star.png" alt="">
+                <p>Documenting generations and more to come.....</p>
+            </div>
+        </div>
+        <!-- main page -->
+        <div class="">
+            <div class=" grid grid-flow-col p-28 text-primary2 h-64 absolute">
+                <div>
+                    <img class="w-96 -ml-10 rounded-sm" src="/img/home_pic.jpg" alt="">
+                </div>
+                <div class="p-12 pl-36 ">
+                    <h1 class="text-6xl font-bold h-20">Sign Up<img class="inline-block" src="/img/leaf.png" alt=""></h1>
 					{{#if message}}
 						<div class="alert alert-{{alerttype}} text-center show" id="fadeDiv" role="alert">
 							{{message}}
 							<button type="button" class="close" data-dismiss="alert" id="fadeButton"><span aria-hidden="true">&times;</span></button>
 						</div>
 					{{/if}}
-					<div class="form-group">
-						<label>Firstname:</label>
-						<input style="width:100%" type="text" name="firstName" />
-					</div>
+                    <p>Create an account and a password for easy login.</p>
+                    {{#if success}}
+                    <form class="grid grid-flow-row" action="/success" method="post">
+                    {{else}}
+                    <form class="grid grid-flow-row" action="/register" method="post">
+                    {{/if}}
+                        {{!-- FIRSTNAME AND LASTNAME ARE NECCESSARY FOR DATABASE --}}
+						{{!-- <label class="absolute mx-2 bg-white" for="firstname">First Name</label>
+                        <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2" name="firstname" type="text">
+						<label class="absolute mx-2 bg-white" for="lastname">Last Name</label>
+                        <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2" name="lastname" type="text"> --}}
+                        <label class="absolute mx-2 bg-white" for="email">Email</label>
+                        <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2" name="email" type="email">
 
+                        <label class="z-10 w-fit mx-2 -mb-6 bg-white" for="password">Password</label>
+                        <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2" name="password" type="password">
 
-					<div class="form-group">
-						<label>Lastname:</label>
-						<input style="width:100%" type="text" name="lastName" />
-					</div>
-
-					<div class="form-group">
-						<label>Password:</label>
-						<input style="width:100%" type="text" name="password" />
-					</div>
-					
-					<div class="submitbtn">
-						{{!-- <input type="submit" value="Submit" class="form-group"> --}}
-						<button type="submit" class="btn btn-primary pull-right" style="background-color: black;" name="submit">
-                  			Submit <i class="fa fa-arrow-circle-right" ></i>
-                		</button>
-					</div>
-					
-					<div class="text-center">
-						<a class="small" style="color: black;" href="/login">Already registered?</a>
-					</div>
-					<br>
-					<div class="text-center">
-						<a class="small" style="color: black;" href="/uchegbu_family_tree">View family tree</a>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+                        <button type="submit" class="h-12 w-56 bg-primary2 text-white rounded-lg my-8">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class=" z-10 grid grid-flow-row w-full bg-transparent text-primary2 h-64 absolute">
+               <div class="grid grid-flow-row grid-rows-6">
+                <div class="border-green-700 grid grid-flow-col justify-end">
+                    <div class="h-8 w-80 bg-white shadow-xl border-x-2 border-b-4"></div>
+                </div>
+                <div class="border-blue-700">
+                    <div class="z-10 h-28 w-36 opacity-60 blur-sm mx-8 bg-white shadow-2xl"></div>
+                </div>
+                <div class="border-red-700">
+                    <div class="z-10 h-20 mx-96 w-28 opacity-60 blur-sm mx-8 bg-white shadow-2xl"></div>
+                </div>
+                <div class="border-green-700 grid grid-flow-col justify-end">
+                    <div class="h-8 w-36 mr-52 bg-white shadow-xl mt-28 border-x-2 border-b-4"></div>
+                </div>
+               </div>
+            </div>
+            <div class="z-20 grid grid-flow-col p-28 text-primary2 h-64 absolute">
+                <div>
+                    <img class="w-96 -ml-10 rounded-sm opacity-0" src="/img/home_pic.jpg" alt="">
+                </div>
+                {{!-- FORM IS REPEATED TWICE --}}
+                <div class="p-12 pl-36 ">
+                    <h1 class="text-6xl font-bold h-20">Sign Up<img class="inline-block" src="/img/leaf.png" alt=""></h1>
+                    <p>Create an account and a password for easy login.</p>
+                    {{#if success}}
+                    <form class="grid grid-flow-row" action="/success" method="post">
+                    {{else}}
+                    <form class="grid grid-flow-row" action="/register" method="post">
+                    {{/if}}
+                        <label class="absolute mx-2 bg-white" for="email">Email</label>
+                        <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2" name="email" type="email">
+                        <label class="z-10 w-fit mx-2 -mb-6 bg-white"  for="password">Password</label>
+                        <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2" name="password" type="password">
+                    </form>
+                    <button type="submit" class="h-12 w-56 bg-primary2 text-white rounded-lg my-8">Submit</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        <!-- <div>
+            <p>Designed By: ITS.</p>
+        </div> -->
+    </div>
 </body>
-<script>
-	var fadeButton = document.getElementById('fadeButton');
-	var fadeDiv = document.getElementById('fadeDiv');
-    fadeButton.addEventListener('click', function() {
-		fadeDiv.classList.add('fade')
-  });
-  	setTimeout(()=>{
-		fadeDiv.classList.add('fade')
-	},3000);
-</script>
 </html>

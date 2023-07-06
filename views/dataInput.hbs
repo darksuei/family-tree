@@ -1,32 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>{{title}}</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width">
-        <link href="css/form.css" rel="stylesheet">
-        
-    </head>
-    <body>
-        <form action="/edit_tree" method="post" class="form">
-            <div class="topContainer">
-                <div class="container">
-                    <div class="wrap">
-                        <h2>Input Family Info</h2>
-                        {{!-- <a href="#" class="add">&plus;</a> --}}
-                    </div>
-                    <div class="inp-group">
-                        <div class="flex">
-                            <input type="text" placeholder="Enter the name" name="name">
-                            <input type="text" placeholder="Enter spouse name" name="spouse">
-                            {{!-- <input type="text" placeholder="Enter child name" name="children"> --}}
-                            {{!-- <a id="firstNode">&plus;</a> --}}
-                        </div>
-                    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/output.css" rel="stylesheet">
+    <title>{{ title }}</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class=" grid grid-flow-row ">
+        <!-- Navbar -->
+        <div class="bg-primary1 text-white grid grid-flow-row">
+            <div class="grid grid-flow-col grid-cols-4 h-24 px-10">
+                <div class="grid grid-flow-col col-span-2 items-center">
+                    <img src="/img/logo.png" alt="">
+                    <ul class="grid grid-flow-col">
+                        <li class="transition hover:underline"><a href="/">Home</a></li>
+                        <li class="transition hover:underline"><a href="/edit_tree">Edit Tree</a></li>
+                        <li class="transition hover:underline"><a href="/about">Learn More</a></li>
+                    </ul>
                 </div>
-               <input type="submit" value="Submit" class="submit"> 
+                <div></div>
+                <div class="grid grid-flow-col pl-4 items-center">
+                    <a href="/login" class="bg-white rounded-md text-primary1 h-9 w-44 text-center my-auto">Login</>
+                    <a class="" href="/signup">Edit Tree</a>
+                </div>
             </div>
-        </form>
+            <div class="bg-primary2 grid grid-flow-col justify-center">
+                <img class="" src="/img/star.png" alt="">
+                <p>Documenting generations and more to come.....</p>
+            </div>
+        </div>
+        <!-- main page -->
+        <div class="">
+            <div class=" grid grid-flow-col p-28 text-primary2 h-64 absolute">
+                <div>
+                    <img class="w-96 -ml-10 rounded-sm" src="/img/home_pic.jpg" alt="">
+                </div>
+                <div class="p-12 pl-36 ">
+                    
+                </div>
+            </div>
+            <div class=" z-10 grid grid-flow-row w-full bg-transparent text-primary2 h-64 absolute">
+               <div class="grid grid-flow-row grid-rows-6">
+                <div class="border-green-700 grid grid-flow-col justify-end">
+                    <div class="h-8 w-80 bg-white shadow-xl border-x-2 border-b-4"></div>
+                </div>
+                <div class="border-blue-700">
+                    <div class="z-10 h-28 w-36 opacity-60 blur-sm mx-8 bg-white shadow-2xl"></div>
+                </div>
+                <div class="border-red-700">
+                    <div class="z-10 h-20 mx-96 w-28 opacity-60 blur-sm mx-8 bg-white shadow-2xl"></div>
+                </div>
+                <div class="border-green-700 grid grid-flow-col justify-end">
+                    <div class="h-8 w-36 mr-52 bg-white shadow-xl mt-28 border-x-2 border-b-4"></div>
+                </div>
+               </div>
+            </div>
+            <div class="z-20 grid grid-flow-col p-28 text-primary2 h-64 absolute">
+                <div>
+                    <img class="w-96 -ml-10 rounded-sm opacity-0" src="/img/home_pic.jpg" alt="">
+                </div>
+                <div class="p-12 pl-36 ">
+                    <h1 class="text-6xl font-bold h-20">Edit Tree<img class="inline-block" src="/img/leaf.png" alt=""></h1>
+                    <p>Update your tree information</p>
+                    <form class="grid grid-flow-row" action="post" action="/edit_tree">
+                        <div class="grid grid-flow-col">
+                            <label class="absolute mx-2 bg-white" for="email">Father's Firstname</label>
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 mr-10" name="email" type="email">
+                            <label class="z-10 w-fit h-fit ml-12 pl-0 bg-white"  for="password">Father's Lastname</label>
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 -ml-40" name="password" type="password">
+                        </div>
+                        <div class="grid grid-flow-col">
+                            <label class="absolute mx-2 bg-white" for="email">Mother's Firstname</label>
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 mr-10" name="email" type="email">
+                            <label class="z-10 w-fit h-fit ml-12 pl-0 bg-white"  for="password">Mother's Lastname</label>
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 -ml-40" name="password" type="password">
+                        </div>
+                        <div class="grid grid-flow-col">
+                            <label class="absolute mx-2 bg-white" for="email">Child's Firstname</label>
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 mr-10" name="email" type="email">
+                            <label class="z-10 w-fit h-fit ml-12 pl-0 bg-white"  for="password">Child's Lastname</label>
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 -ml-40" name="password" type="password">
+                        </div>
+                        <div class="grid grid-flow-col">
+                            <label class="absolute mx-2 bg-white" for="email">Child Spouse's Firstname</label>
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 mr-10" name="email" type="email">
+                            <label class="z-10 w-fit h-fit ml-12 pl-0 bg-white"  for="password">Child Spouse's Lastname</label>
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 -ml-40" name="password" type="password">
+                        </div>
+                        </form>
+                    <button type="submit" class="h-12 w-56 bg-primary2 text-white rounded-lg my-8">Submit</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        <!-- <div>
+            <p>Designed By: ITS.</p>
+        </div> -->
+    </div>
         <script type="text/javascript" src="javascripts/dataInput.js"></script>
-    </body>
+</body>
 </html>

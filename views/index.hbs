@@ -1,70 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>{{title}}</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-    <div class="home_nav">
-			<nav>
-				<ul>
-					<li><a href="/">Home</a></li>
-					{{#if loggedIn}}
-            <li><a href="/logout" onclick="confirmLogout()">Logout</a></li>
-            <li><a href="/edit_tree">Edit Tree</a></li>
+<head>
+  <title>{{title}}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="css/style.css"> -->
+  <link href="output.css" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="grid grid-flow-row">
+    <div class="bg-primary1 text-white grid grid-flow-row">
+      <div class="grid grid-flow-col grid-cols-4 h-24 px-10">
+        <div class="grid grid-flow-col col-span-2 items-center">
+          <img src="/img/logo.png" alt="">
+          <ul class="grid grid-flow-col">
+            <li class="transition hover:underline"><a href="/">Home</a></li>
+            <li class="transition hover:underline"><a href="/edit_tree">Edit</a></li>
+            <li class="transition hover:underline"><a href="/about">Learn More</a></li>
+          </ul>
+        </div>
+        <div></div>
+        <div class="grid grid-flow-col pl-4 items-center">
+          {{#if loggedIn}}
+            <a href="/login" onclick="confirmLogout()" class="bg-white rounded-md text-primary1 h-9 w-44 text-center">Logout</a>
           {{else}}
-            <li><a href="/register">Register</a></li>
-            <li><a href="/login">Login</a></li>
+            <a href="/login" class="bg-white rounded-md text-primary1 h-9 w-44 text-center">Login</a>
+            <a class="" href="/register">Sign Up</a>
           {{/if}}
-				</ul>
-			</nav>
-		</div>
-    <div id="container">
+        </div>
+      </div>
+      <div class="bg-primary2 grid grid-flow-col justify-center">
+        <img class="" src="/img/star.png" alt="">
+        <p>Documenting generations and more to come.....</p>
+      </div>
+    </div>
+    <!-- Navbar -->
+
+    <div>
       {{#if message}}
         <div class="alert alert-{{alerttype}} text-center show" id="fadeDiv" role="alert">
           {{message}}
           <button type="button" class="close" data-dismiss="alert" id="fadeButton"><span aria-hidden="true">&times;</span></button>
         </div>
       {{/if}}
-        <h1 >The <span id="family_name">family</span>'s</h1>
-        <h4>FAMILY TREE</h4>
-        <div id="a-wrapper">
-          <a href="/uchegbu_family_tree" class="btn">Click here to view</a>
-          {{#if loggedIn}}
-          {{else}}
-            <a href="/login" class="btn">Login</a>
-          {{/if}}
-        </div>
-        <form method="get" action="/family_tree_search">
-            <i class="fas fa-search"></i>
-                <input type="text" name="search" id="search-name" placeholder="Search by Family Name"/>
-        </form>
-        <p class="info"><em>documenting generations and more to come..</em></p>
     </div>
-    <script>
-      document.body.style.zoom = "100%";
-      const element = document.getElementById("family_name");
-      element.innerHTML = "Uchegbu";
+      
+      <!-- main page -->
+      <div class="">
+        <div class="grid grid-flow-col p-28 text-primary2 h-64 absolute">
+          <div>
+            <img class="w-96 -ml-10 rounded-sm" src="/img/home_pic.jpg" alt="">
+          </div>
+          <div class="p-12 pl-36">
+            <h1 class="text-6xl font-bold h-32 my-6">All your <span class="underline">Family <img class="inline-block" src="/img/leaf.png" alt=""> <br>History</span> in one place.</h1>
+            <h3 class="text-lg text-primary1 tracking-widest">THE FAMILY TREE APP</h3>
+            {{!-- SOMETHING IS COVERING THIS BUTTON --}}
+            <button class="h-12 w-56 bg-primary2 text-white rounded-lg my-8"><a href="/uchegbu_family_tree">Click here to view</a></button>
+          </div>
+        </div>
+        <div class="z-10 grid grid-flow-row w-full bg-transparent text-primary2 h-64 absolute">
+          <div class="grid grid-flow-row grid-rows-6">
+            <div class="border-green-700 grid grid-flow-col justify-end">
+              <div class="h-8 w-80 bg-white shadow-xl border-x-2 border-b-4"></div>
+            </div>
+            <div class="border-blue-700">
+              <div class="z-10 h-28 w-36 opacity-60 blur-sm mx-8 bg-white shadow-2xl"></div>
+            </div>
+            <div class="border-red-700">
+              <div class="z-10 h-20 mx-96 w-28 opacity-60 blur-sm mx-8 bg-white shadow-2xl"></div>
+            </div>
+            <div class="border-green-700 grid grid-flow-col justify-end">
+              <div class="h-8 w-36 mr-52 bg-white shadow-xl mt-28 border-x-2 border-b-4"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <script>
+    document.body.style.zoom = "100%";
+    const element = document.getElementById("family_name");
+    element.innerHTML = "Uchegbu";
 
-      var fadeButton = document.getElementById('fadeButton');
-      var fadeDiv = document.getElementById('fadeDiv');
-      fadeButton.addEventListener('click', function() {
-        fadeDiv.classList.add('fade')
-  });
+    var fadeButton = document.getElementById('fadeButton');
+    var fadeDiv = document.getElementById('fadeDiv');
+    fadeButton.addEventListener('click', function() {
+      fadeDiv.classList.add('fade');
+    });
 
-  setTimeout(()=>{
-    fadeDiv.classList.add('fade')
-  },3000);
+    setTimeout(() => {
+      fadeDiv.classList.add('fade');
+    }, 3000);
 
-  function confirmLogout() {
-  if (confirm('Are you sure you want to log out?')) {
-    window.location.href = '/logout';
-  }
-}
-
-    </script>
-    <!--<script src="src/index.js"></script>-->
-  </body>
+    function confirmLogout() {
+      if (confirm('Are you sure you want to log out?')) {
+        window.location.href = '/logout';
+      }
+    }
+  </script>
+  <!--<script src="src/index.js"></script>-->
+</body>
 </html>

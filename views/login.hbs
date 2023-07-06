@@ -1,122 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/output.css" rel="stylesheet">
     <title>{{title}}</title>
-    
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="vendor/themify-icons/themify-icons.min.css">
-    <link href="vendor/animate.css/animate.min.css" rel="stylesheet" media="screen">
-    <link href="vendor/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet" media="screen">
-    <link href="vendor/switchery/switchery.min.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/plugins.css">
-    <link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
-    <style type="text/css">
-      body{ 
-          background-image: url('img/background.jpg');      
-          background-repeat: no-repeat;
-          background-size: cover;
-      }
-      .reg{
-          border-radius: 0px;
-          background: linear-gradient(94.56deg, rgba(255, 255, 255, 0.1) 11.83%, rgba(255, 255, 255, 0.05) 91.44%);
-          opacity: 0.4;
-          box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.25);
-          backdrop-filter: blur(20px);
-          /* Note: backdrop-filter has minimal browser support */
-
-          border-radius: 10px;
-          z-index: -1;
-      }
-      fieldset{
-        background: linear-gradient(94.56deg, rgba(255, 255, 255, 0.1) 11.83%, rgba(255, 255, 255, 0.05) 91.44%);
-        box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.25);
-        backdrop-filter: blur(10px);
-        /* Note: backdrop-filter has minimal browser support */
-        /* height: 30% */
-        border: none;
-        padding-top: 50px;
-        border-radius: 10px;
-        z-index: 2;
-      }
-      fieldset legend{
-        top: -3px;
-        margin: 0px;
-      }
-      .form-control{
-          background: linear-gradient(94.56deg, rgba(255, 255, 255, 0.1) 11.83%, rgba(255, 255, 255, 0.05) 91.44%);
-          box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.25);
-          backdrop-filter: blur(20px);
-          margin-bottom: 5px;
-          /* Note: backdrop-filter has minimal browser support */
-                
-          border-radius: 10px;
-        }
-        .hover-a:hover{
-          text-decoration: underline;
-        }
-        .fade {
-        opacity: 0;
-        transition: opacity 0.2s linear;
-        display: none !important;
-        height: 0;
-      }
-    </style>
-  </head>
-  
-  <body class="login" style="padding-top: 2em;">
-    <div class="row">
-      <div class="main-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
-        <div class="logo margin-top-30">
-        <a href="/login" ><h2 style="color: white; width:100%; text-align: center; ">Login</h2></a>
-        {{#if message}}
-          <div class="alert alert-{{alerttype}} text-center show" id="fadeDiv" role="alert">
-            {{message}}
-            <button type="button" class="close" data-dismiss="alert" id="fadeButton"><span aria-hidden="true">&times;</span></button>
-          </div>
-        {{/if}}
-        <form class="form-login" method="post" action="/">
-        <fieldset>
-              <legend style="color: black;">
-                Sign in to your account
-              </legend>
-              <div>Please enter your name and password to log in</div>             
-          <div>
-            <input type="text" class="form-control" name="lastName" placeholder="Lastname" />
-              <span class="input-icon">
-          <input type="password" class="form-control" name="password" placeholder="Password" />
-          <i class="fa fa-lock" style="color: black;"></i>
-          </span><br>
-          <a href="/" style="color: white;" class="hover-a">
-              Back
-            </a>
-            <a style="padding-left: 50%; color: white;" href="/register" class="hover-a">
-              Create a family account?
-            </a>
-          </div>
-            <div class="form-actions">
-              
-              <button type="submit" class="btn btn-primary pull-right" style="background-color: black;" name="submit">
-                Login <i class="fa fa-arrow-circle-right" ></i>
-              </button>
+    <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+    <div class=" grid grid-flow-row ">
+        <!-- Navbar -->
+        <div class="bg-primary1 text-white grid grid-flow-row">
+            <div class="grid grid-flow-col grid-cols-4 h-24 px-10">
+                <div class="grid grid-flow-col col-span-2 items-center">
+                    <img src="/img/logo.png" alt="">
+                    <ul class="grid grid-flow-col">
+                        <li class="transition hover:underline"><a href="/">Home</a></li>
+                        <li class="transition hover:underline"><a href="/about">About Us</a></li>
+                        <li class="transition hover:underline"><a href="/about">Learn More</a></li>
+                    </ul>
+                </div>
+                <div></div>
+                <div class="grid grid-flow-col pl-4 items-center">
+                    <a href="/login" class="bg-white rounded-md text-primary1 h-9 w-44 text-center my-auto">Login</>
+                    <a class="" href="/register">Sign Up</a>
+                </div>
             </div>
-        </fieldset>
-</form>
+            <div class="bg-primary2 grid grid-flow-col justify-center">
+                <img class="" src="/img/star.png" alt="">
+                <p>Documenting generations and more to come.....</p>
+            </div>
+        </div>
+        <!-- main page -->
+        <div class="">
+            <div class=" grid grid-flow-col p-28 text-primary2 h-64 absolute">
+                <div>
+                    <img class="w-96 -ml-10 rounded-sm" src="/img/home_pic.jpg" alt="">
+                </div>
+                <div class="p-12 pl-36 ">
+                    <h1 class="text-6xl font-bold h-20">Log In<img class="inline-block" src="/img/leaf.png" alt=""></h1>
+                    {{#if message}}
+                      <div class="alert alert-{{alerttype}} text-center show" id="fadeDiv" role="alert">
+                        {{message}}
+                        <button type="button" class="close" data-dismiss="alert" id="fadeButton"><span aria-hidden="true">&times;</span></button>
+                      </div>
+                    {{/if}}
+                    <p>Enter your details to login and view your tree.</p>
+                    <form class="grid grid-flow-row" method="post" action="/">
+                        <label class="absolute mx-2 bg-white" for="email">Email</label>
+                        <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2" name="email" type="email">
+                        <label class="z-10 w-fit mx-2 -mb-6 bg-white"  for="password">Password</label>
+                        <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2" name="password" type="password">
+                    </form>
+                    <button type="submit" class="h-12 w-56 bg-primary2 text-white rounded-lg my-8">Submit</button>
+                </div>
+            </div>
+            <div class=" z-10 grid grid-flow-row w-full bg-transparent text-primary2 h-64 absolute">
+               <div class="grid grid-flow-row grid-rows-6">
+                <div class="border-green-700 grid grid-flow-col justify-end">
+                    <div class="h-8 w-80 bg-white shadow-xl border-x-2 border-b-4"></div>
+                </div>
+                <div class="border-blue-700">
+                    <div class="z-10 h-28 w-36 opacity-60 blur-sm mx-8 bg-white shadow-2xl"></div>
+                </div>
+                <div class="border-red-700">
+                    <div class="z-10 h-20 mx-96 w-28 opacity-60 blur-sm mx-8 bg-white shadow-2xl"></div>
+                </div>
+                <div class="border-green-700 grid grid-flow-col justify-end">
+                    <div class="h-8 w-36 mr-52 bg-white shadow-xl mt-28 border-x-2 border-b-4"></div>
+                </div>
+               </div>
+            </div>
 
-</div>
-</div>
-</div>
-<script>
-  var fadeButton = document.getElementById('fadeButton');
-      var fadeDiv = document.getElementById('fadeDiv');
-      fadeButton.addEventListener('click', function() {
-        fadeDiv.classList.add('fade')
-  });
-  setTimeout(()=>{
-    fadeDiv.classList.add('fade')
-  },3000);
-</script>
+            {{!-- FORM REPEATED --}}
+            <div class="z-20 grid grid-flow-col p-28 text-primary2 h-64 absolute">
+                <div>
+                    <img class="w-96 -ml-10 rounded-sm opacity-0" src="./img/home_pic.jpg" alt="">
+                </div>
+                <div class="p-12 pl-36 ">
+                    <h1 class="text-6xl font-bold h-20">Log In<img class="inline-block" src="./img/leaf.png" alt=""></h1>
+                    <p>Enter your details to login and view your tree.</p>
+                    <form class="grid grid-flow-row" method="post" action="/">
+                        <label class="absolute mx-2 bg-white" for="email">Email</label>
+                        <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2" name="email" type="email">
+                        <label class="z-10 w-fit mx-2 -mb-6 bg-white"  for="password">Password</label>
+                        <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2" name="password" type="password">
+                    </form>
+                    <button type="submit" class="h-12 w-56 bg-primary2 text-white rounded-lg my-8">Submit</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        <!-- <div>
+            <p>Designed By: ITS.</p>
+        </div> -->
+    </div>
 </body>
 </html>

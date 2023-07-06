@@ -37,8 +37,16 @@ const constructobj = (obj)=>{
 }
 
 module.exports.index = function(req, res) {
-  res.render(path.join(__dirname,'..','views','index'), { title: 'Family Tree' });
+  res.render(path.join(__dirname,'..','views','index'), { title: 'Uchegbu Family Tree' });
 }  
+
+module.exports.about = function(req, res) {
+  res.render(path.join(__dirname,'..','views','about_us'), { title: 'About Us' });
+}
+
+module.exports.success = function(req, res) {
+  res.render(path.join(__dirname,'..','views','success'), { title: 'Registration Success' });
+}
 
 module.exports.family_tree_search = async function(req, res) {
   const url = req.originalUrl;
@@ -59,11 +67,11 @@ module.exports.getData = async function (req,res){
 
 module.exports.default_tree = async function (req,res){
   const data = req.session.data;
-  res.render(path.join(__dirname,'..','views','default_family_tree'), { title: 'Family Tree', data: data });
+  res.render(path.join(__dirname,'..','views','default_family_tree'), { title: 'Uchegbu Family Tree', data: data });
 }
 
 module.exports.login = function(req, res) {
-res.render(path.join(__dirname,'..','views','login'), { title: 'Family tree Login' });
+res.render(path.join(__dirname,'..','views','login'), { title: 'Uchegbu Family tree | Login' });
 }
 
 module.exports.logout = function(req, res) {
@@ -71,13 +79,13 @@ module.exports.logout = function(req, res) {
     if (err) {
       console.log(err);
     } else {
-      res.render(path.join(__dirname,'..','views','index'), { title: 'Family Tree', message: 'Successfully logged out!', alerttype: "success" });
+      res.render(path.join(__dirname,'..','views','index'), { title: 'Family Tree', message: 'Successfully logged out..!', alerttype: "success" });
     }
   });
 }
 
 module.exports.register = function(req, res) {
-res.render(path.join(__dirname,'..','views','registration'), { title: 'Family Tree Register' });
+res.render(path.join(__dirname,'..','views','registration'), { title: 'Uchegbu Family Tree | Sign Up' });
 }
 
 module.exports.display = function(req, res) {

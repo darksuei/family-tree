@@ -11,9 +11,11 @@ var cors = require("cors");
 
 var authRouter = require('./routes/auth');
 var indexRouter = require('./routes/index');
+var aboutRouter = require('./routes/about');
 var loginRouter = require('./routes/login');
 var logoutRouter = require('./routes/logout');
 var registerRouter = require('./routes/register');
+var successRouter = require('./routes/success');
 var editRouter = require('./routes/display');
 var getdataRouter = require('./routes/getData');
 var defaulttreeRouter = require('./routes/default_family_tree');
@@ -35,7 +37,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'dist')));
 app.use(express.static('public'));
 
 app.use('/', indexRouter);
@@ -43,10 +45,12 @@ app.use('/', loginRouter);
 app.use('/', logoutRouter);
 app.use('/', registerRouter);
 app.use('/', authRouter);
+app.use('/', successRouter);
 app.use('/', editRouter);
 app.use('/', getdataRouter);
 app.use('/', defaulttreeRouter);
 app.use('/', treesearchRouter);
+app.use('/', aboutRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
