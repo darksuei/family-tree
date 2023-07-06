@@ -62,7 +62,7 @@ module.exports.getData = async function (req,res){
   let searchstr = req.query.search;
   var treeDetails = await Tree.findOne({name:searchstr},{'_id': false, '__v': false});
   var data = { title: 'Family Tree', treeDetails:treeDetails};
-  res.json(data)
+  res.send(data);
 }
 
 module.exports.default_tree = async function (req,res){

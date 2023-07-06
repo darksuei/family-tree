@@ -27,8 +27,8 @@
                 </div>
                 <div></div>
                 <div class="grid grid-flow-col pl-4 items-center">
-                    <a href="/login" class="bg-white rounded-md text-primary1 h-9 w-44 text-center my-auto">Login</>
-                    <a class="" href="/signup">Edit Tree</a>
+                    <a href="/" onclick="confirmLogout()" class="bg-white rounded-md text-primary1 h-9 w-44 text-center my-auto">Logout</a>
+                    <a class="" href="/edit_tree">Edit Tree</a>
                 </div>
             </div>
             <div class="bg-primary2 grid grid-flow-col justify-center">
@@ -106,5 +106,12 @@
         </div> -->
     </div>
         <script type="text/javascript" src="javascripts/dataInput.js"></script>
+        <script>
+            function confirmLogout() {
+            if (confirm('Are you sure you want to log out?')) {
+                window.location.href = '/logout';
+            }
+            }
+        </script>
 </body>
 </html>
