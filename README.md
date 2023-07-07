@@ -21,7 +21,7 @@ This is a web application that allows users to input their family tree and view 
 <ol type="1">
 <li>Clone the repository:
   <ul>
-    <li><b>git clone https://github.com/your-username/family-tree-web-app.git</b></li>
+    <li><b>git clone https://github.com/Suei43/family-tree-web-app.git</b></li>
     <li><b>cd family-tree-web-app</b></li>
     </ul>
   </li>
@@ -30,13 +30,13 @@ This is a web application that allows users to input their family tree and view 
   </li>
 <li>Create a .env file in the root directory and add the following:
   <ol type="I">
-    <li><b>PORT=3000</b></li>
-    <li><b>MONGODB_URI=mongodb://localhost/family-tree-web-app</b></li>
-    <li><b>SESSION_SECRET=your_session_secret</b></li>
+    <li><b>PORT = 3000</b></li>
+    <li><b>DB_URI = mongo_db_url</b></li>
+    <li><b>SESSION_SECRET = your_session_secret</b></li>
     <em>Replace your_session_secret with a random string that will be used to sign session cookies.</em>
   </li>
 <li>Start the application:
-<b>npm start</b>
+<b>npm run start</b>
   </li>
   </ol>
 The application should now be running on <a href="http://localhost:3000">http://localhost:3000</a>.
