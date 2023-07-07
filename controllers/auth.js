@@ -5,22 +5,22 @@ const bcrypt = require("bcrypt");
 const shortid = require("shortid");
 
 const signUp = async (req, res) => {
-  const { firstName, lastName, password } = req.body;
-  if (!firstName || !lastName || !password) {
+   console.log(req.body);
+  const { email, password } = req.body;
+  if (!email || !password) {
      return res.status(StatusCodes.BAD_REQUEST).render('registration',{ message: "Please provide password", alerttype: "warning"});
   }
   var pw = password
   const hash_password = await bcrypt.hash(pw, 10);
  
   const userData = {
-     firstName,
-     lastName,
+     email,
      hash_password,
   };
 
-  const user = await User.findOne({ lastName });
+  const user = await User.findOne({ email });
   if (user) {
-     return res.status(StatusCodes.BAD_REQUEST).render('registration',{ message: "Last Name already exists!", alerttype: "warning"});
+     return res.status(StatusCodes.BAD_REQUEST).render('registration',{ message: "Email already exists!", alerttype: "warning"});
   } else {
      User.create(userData).then((data, err) => {
      if (err){
@@ -29,7 +29,7 @@ const signUp = async (req, res) => {
      }
      else{
       res
-      .status(StatusCodes.CREATED).render('login',{ message: "User created Successfully", alerttype: "success", success : "success"});
+      .status(StatusCodes.CREATED).render('success',{ message: "User created Successfully", alerttype: "success", success : "success"});
      }
      });
     }
@@ -38,11 +38,11 @@ const signUp = async (req, res) => {
 
 const signIn = async (req, res) => {
    try {
-      if (!req.body.lastName || !req.body.password) {
-         res.status(StatusCodes.BAD_REQUEST).render('login',{ message: "Please enter valid name and password", alerttype: "warning"});
+      if (!req.body.email || !req.body.password) {
+         res.status(StatusCodes.BAD_REQUEST).render('login',{ message: "Please enter valid email and password", alerttype: "warning"});
       }
       
-      const user = await User.findOne({ lastName: req.body.lastName });
+      const user = await User.findOne({ email: req.body.email });
       const comparePassword = await bcrypt.compare(req.body.password, user.hash_password);
 
       if(user && comparePassword) {

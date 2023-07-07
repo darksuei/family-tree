@@ -40,6 +40,10 @@ module.exports.index = function(req, res) {
   res.render(path.join(__dirname,'..','views','index'), { title: 'Uchegbu Family Tree' });
 }  
 
+module.exports.loggedIn = function(req, res) {
+  res.redirect('/');
+}
+
 module.exports.about = function(req, res) {
   res.render(path.join(__dirname,'..','views','about_us'), { title: 'About Us' });
 }
