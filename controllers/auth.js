@@ -5,7 +5,6 @@ const bcrypt = require("bcrypt");
 const shortid = require("shortid");
 
 const signUp = async (req, res) => {
-   console.log(req.body);
   const { email, password } = req.body;
   if (!email || !password) {
      return res.status(StatusCodes.BAD_REQUEST).render('registration',{ message: "Please provide password", alerttype: "warning"});
