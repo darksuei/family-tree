@@ -12,8 +12,8 @@
         "dest": "/app.js"
       }
     ],
-    "static": {
-        "source": "public"
-      }
+    "files": [
+        "public/**/*"
+      ]
   }
   
