@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../index');
+var app = require('../app');
 var debug = require('debug')('family-tree-express:server');
 var http = require('http');
 var connectDB = require('../db/connect')
