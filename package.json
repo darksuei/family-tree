@@ -21,7 +21,7 @@
     "http-errors": "~1.6.3",
     "http-status-codes": "^2.2.0",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^7.0.3 || >=14.20.1",
+    "mongoose": "5.13.0",
     "morgan": "~1.9.1",
     "nodemon": "^1.14.9",
     "shortid": "^2.2.16"
