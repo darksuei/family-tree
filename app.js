@@ -23,10 +23,12 @@ var treesearchRouter = require('./routes/family_tree_search');
 
 var app = express();
 app.use(session({
-  secret: 'kL23t57gg61l', //use env variable for this instead of hardcoding
+  secret: process.env.SESSION_SECRET , 
   resave: false,
   saveUninitialized: true
 }));
+
+console.log(`Session secret: ${process.env.SESSION_SECRET}`);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

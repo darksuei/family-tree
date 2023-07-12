@@ -61,7 +61,7 @@ const signIn = async (req, res) => {
 //   }
          var loggedIn = true;
          req.session.data = {loggedIn : loggedIn, user : user}
-         res.render('index',{ message: "Sucessfully logged in!", loggedIn: true, alerttype: "success", success : "success"})
+         res.render('index',{ message: "Sucessfully logged in!", loggedIn: true, alerttype: "success", isloggedIn: req.session.data});
  } else {
    res.status(StatusCodes.BAD_REQUEST).render('login',{ message: "Invalid Login Details!", alerttype: "warning"});
  }

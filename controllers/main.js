@@ -37,7 +37,13 @@ const constructobj = (obj)=>{
 }
 
 module.exports.index = function(req, res) {
-  res.render(path.join(__dirname,'..','views','index'), { title: 'Uchegbu Family Tree' });
+  let isloggedIn = false;
+  if(req.session.data){
+    isloggedIn = true;
+  }else{
+    console.log("No session data...!")
+  }
+  res.render(path.join(__dirname,'..','views','index'), { title: 'Uchegbu Family Tree', isloggedIn: isloggedIn });
 }  
 
 module.exports.loggedIn = function(req, res) {
@@ -45,7 +51,10 @@ module.exports.loggedIn = function(req, res) {
 }
 
 module.exports.about = function(req, res) {
-  res.render(path.join(__dirname,'..','views','about_us'), { title: 'About Us' });
+  if(req.session.data){
+    isloggedIn = true;
+  }
+  res.render(path.join(__dirname,'..','views','about_us'), { title: 'About Us', isloggedIn: isloggedIn });
 }
 
 module.exports.success = function(req, res) {
