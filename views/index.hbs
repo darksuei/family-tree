@@ -22,7 +22,7 @@
           <img src="/img/logo.png" alt="">
           <ul class="grid grid-flow-col">
             <li class="transition hover:underline"><a href="/">Home</a></li>
-            {{#if loggedIn}}
+            {{#if isloggedIn}}
               <li class="transition hover:underline"><a href="/edit_tree">Edit Tree</a></li>
             {{else}}
               <li class="transition hover:underline"><a href="/about">About Us</a></li>
@@ -33,7 +33,7 @@
         </div>
         <div></div>
         <div class="grid grid-flow-col pl-4 items-center">
-          {{#if loggedIn}}
+          {{#if isloggedIn}}
             <a href="/login" onclick="confirmLogout()" class="bg-white rounded-md text-primary1 w-44 p-4 text-center shadow-md">Logout</a>
           {{else}}
             <a href="/login" class="bg-white rounded-md text-primary1 w-44 p-4 text-center shadow-md">Login</a>
@@ -66,7 +66,7 @@
           <div class="p-12 pl-36">
             <h1 class="text-6xl font-bold h-32 my-6">All your <span class="underline">Family <img class="inline-block" src="/img/leaf.png" alt=""> <br>History</span> in one place.</h1>
             <h3 class="text-lg text-primary1 tracking-widest">THE FAMILY TREE APP</h3>
-            {{#if loggedIn}}
+            {{#if isloggedIn}}
             <button class="h-12 w-56 bg-primary2 text-white rounded-lg my-8"><a href="/family_tree">Click here to view</a></button>
             {{else}}
             <button class="h-12 w-56 bg-primary2 text-white rounded-lg my-8"><a href="/signup">Click here to view</a></button>
@@ -96,7 +96,7 @@
                 <div class="p-12 pl-36">
                     <h1 class="text-6xl font-bold h-32 my-6">All your <span class="underline">Family <img class="inline-block" src="./img/leaf.png" alt=""> <br>History</span> in one place.</h1>
                     <h3 class="text-lg text-primary1 tracking-widest">THE FAMILY TREE APP</h3>
-                    {{#if loggedIn}}
+                    {{#if isloggedIn}}
                     <button class="h-12 w-56 bg-primary2 text-white rounded-lg my-8"><a href="/uchegbu_family_tree">Click here to view</a></button>
                     {{else}}
                     <button class="h-12 w-56 bg-primary2 text-white rounded-lg my-8"><a href="/signup">Click here to view</a></button>
