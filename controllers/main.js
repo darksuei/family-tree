@@ -42,6 +42,7 @@ module.exports.index = function(req, res) {
     isloggedIn = true;
   }else{
     console.log("No session data...!")
+    isloggedIn = false;
   }
   res.render(path.join(__dirname,'..','views','index'), { title: 'Uchegbu Family Tree', isloggedIn: isloggedIn });
 }  
@@ -53,6 +54,8 @@ module.exports.loggedIn = function(req, res) {
 module.exports.about = function(req, res) {
   if(req.session.data){
     isloggedIn = true;
+  }else{
+    isloggedIn = false;
   }
   res.render(path.join(__dirname,'..','views','about_us'), { title: 'About Us', isloggedIn: isloggedIn });
 }

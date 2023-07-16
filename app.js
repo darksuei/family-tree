@@ -9,6 +9,16 @@ require("dotenv").config();
 var connectDB = require("./db/connect");
 var cors = require("cors");
 
+var app = express();
+app.use(session({
+  secret: process.env.SESSION_SECRET, 
+  resave: false,
+  saveUninitialized: false,
+  // cookie: {
+  //   maxAge: 0
+  // }
+}));
+
 var authRouter = require('./routes/auth');
 var indexRouter = require('./routes/index');
 var aboutRouter = require('./routes/about');
@@ -21,12 +31,6 @@ var getdataRouter = require('./routes/getData');
 var defaulttreeRouter = require('./routes/default_family_tree');
 var treesearchRouter = require('./routes/family_tree_search');
 
-var app = express();
-app.use(session({
-  secret: process.env.SESSION_SECRET , 
-  resave: false,
-  saveUninitialized: true
-}));
 
 console.log(`Session secret: ${process.env.SESSION_SECRET}`);
 
