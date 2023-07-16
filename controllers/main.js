@@ -104,21 +104,42 @@ module.exports.register = function(req, res) {
 res.render(path.join(__dirname,'..','views','registration'), { title: 'Uchegbu Family Tree | Sign Up' });
 }
 
-module.exports.display = function(req, res) {
-  if(req.method === 'post'){
-    console.log(req.query)
-      const tree = new Tree(
-        constructobj(Object.values(req.query))
-      )
-      tree.save().then(()=>{
-        console.log("works")
-        res.status(200);
-        res.render(path.join(__dirname,'..','views','dataInput', {title: 'Edit Family Tree'}));
-      }).catch((error)=>{
-        console.log(error)
-      res.status(400).send(error);
-    })}else{
+module.exports.edit = function(req, res) {
+  let currentuseremail = req.session.data.user.email;
+    const treedata = Tree.findOne({email:currentuseremail})
     res.status(201)
     res.render(path.join(__dirname,'..','views','dataInput'),{title: 'Edit Family Tree'});
   }
-  }
+
+module.exports.editpost = function (req,res){
+  let currentuseremail = req.session.data.user.email;
+    console.log("Body: ",req.body)
+    // let treeobj = constructobj(Object.values(req.query)) RECURSSION FUNCTION
+    let treeobj = req.body
+    treeobj.email = currentuseremail;
+    treeobj.fathersfirstname = req.body['father-fname'];
+    treeobj.fatherslastname = req.body.father-lname;
+    Tree.create(treeobj).then(()=>{
+        res.status(200);
+        res.render(path.join(__dirname,'..','views','dataInput'), {title: 'Edit Family Tree'});
+      }).catch((error)=>{
+        console.log(error)
+      res.status(400).send(error);
+  })
+}
+
+module.exports.editput = function (req,res){
+  let currentuseremail = req.session.data.user.email;
+  const updatedData = req.body;
+  Tree.findOneAndUpdate({email: currentuseremail}, updatedData, {new:true}).then((updatedtree)=>{
+    if(updatedtree){
+      console.log(updatedtree)
+    }else{
+      res.status(404).send("Tree data not found")
+    }
+  }).catch(err=>{
+    console.error(err)
+    res.status(500).send('An Error Occured')
+  })
+  res.send('Works')
+}
