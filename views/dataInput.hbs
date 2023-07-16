@@ -69,7 +69,7 @@
                 <div class="p-12 pl-36 ">
                     <h1 class="text-6xl font-bold h-20">Edit Tree<img class="inline-block" src="/img/leaf.png" alt=""></h1>
                     <p>Update your tree information</p>
-                    <form class="grid grid-flow-row" action="post" action="/edit_tree">
+                    <form class="grid grid-flow-row" method="post" action="/edit_tree/new_tree">
                         <div class="grid grid-flow-col">
                             <label class="absolute mx-2 bg-white" for="father-fname">Father's Firstname</label>
                             <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 mr-10" name="father-fname">
@@ -94,8 +94,8 @@
                             <label class="z-10 w-fit h-fit ml-12 pl-0 bg-white"  for="spouse-lname">Child Spouse's Lastname</label>
                             <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 -ml-40" name="spouse-lname">
                         </div>
+                        <button type="submit" class="h-12 w-56 bg-primary2 text-white rounded-lg my-8">Submit</button>
                         </form>
-                    <button type="submit" class="h-12 w-56 bg-primary2 text-white rounded-lg my-8">Submit</button>
                 </div>
             </div>
         </div>
