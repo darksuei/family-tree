@@ -61,7 +61,8 @@ module.exports.about = function(req, res) {
 }
 
 module.exports.success = function(req, res) {
-  res.render(path.join(__dirname,'..','views','success'), { title: 'Registration Success' });
+  let text = "Registration Successful..!"
+  res.render(path.join(__dirname,'..','views','success'), { title: 'Registration Success', text: text });
 }
 
 module.exports.family_tree_search = async function(req, res) {
