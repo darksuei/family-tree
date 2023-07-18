@@ -61,8 +61,8 @@ module.exports.about = function(req, res) {
 }
 
 module.exports.success = function(req, res) {
-  let text = "Registration Successful..!"
-  res.render(path.join(__dirname,'..','views','success'), { title: 'Registration Success', text: text });
+  let text = "Successful..!"
+  res.render(path.join(__dirname,'..','views','success'), { title: 'Success', text: text });
 }
 
 module.exports.family_tree_search = async function(req, res) {
@@ -106,41 +106,54 @@ res.render(path.join(__dirname,'..','views','registration'), { title: 'Uchegbu F
 }
 
 module.exports.edit = function(req, res) {
-  let currentuseremail = req.session.data.user.email;
+    let currentuseremail = req.session.data.user.email;
     const treedata = Tree.findOne({email:currentuseremail})
     res.status(201)
-    res.render(path.join(__dirname,'..','views','dataInput'),{title: 'Edit Family Tree'});
+    res.render(path.join(__dirname,'..','views','dataInput'),{title: 'Edit Family Tree', data:treedata});
   }
 
 module.exports.editpost = function (req,res){
-  let currentuseremail = req.session.data.user.email;
-    console.log("Body: ",req.body)
+    let treeobj = req.body;
+    treeobj.email = req.session.data.user.email;
+
     // let treeobj = constructobj(Object.values(req.query)) RECURSSION FUNCTION
-    let treeobj = req.body
-    treeobj.email = currentuseremail;
-    treeobj.fathersfirstname = req.body['father-fname'];
-    treeobj.fatherslastname = req.body.father-lname;
+
     Tree.create(treeobj).then(()=>{
-        res.status(200);
-        res.render(path.join(__dirname,'..','views','dataInput'), {title: 'Edit Family Tree'});
+        res.status(200).render(path.join(__dirname,'..','views','success'), {title: 'Success'});
       }).catch((error)=>{
         console.log(error)
-      res.status(400).send(error);
+        res.status(400).send(error);
   })
 }
 
-module.exports.editput = function (req,res){
+module.exports.editput = function (req, res) {
   let currentuseremail = req.session.data.user.email;
-  const updatedData = req.body;
-  Tree.findOneAndUpdate({email: currentuseremail}, updatedData, {new:true}).then((updatedtree)=>{
-    if(updatedtree){
-      console.log(updatedtree)
-    }else{
-      res.status(404).send("Tree data not found")
+
+  const nonEmptyFields = {};
+
+  // Iterate through the properties of req.body and filter out empty values
+  for (let key in req.body) {
+    if (req.body[key] !== null && req.body[key] !== undefined && req.body[key] !== '') {
+      nonEmptyFields[key] = req.body[key];
     }
-  }).catch(err=>{
-    console.error(err)
-    res.status(500).send('An Error Occured')
-  })
-  res.send('Works')
-}
+  }
+
+  console.log(nonEmptyFields); // Log the non-empty fields
+
+  Tree.findOneAndUpdate({ email: currentuseremail }, nonEmptyFields, { new: true, useFindAndModify: false })
+    .then((updatedtree) => {
+      if (updatedtree) {
+        // Tree found and updated successfully
+        return updatedtree.save();
+      } else {
+        res.status(404).send("Tree data not found");
+      }
+    })
+    .then(() => {
+      res.render(path.join(__dirname, '..', 'views', 'success'), { title: 'Success' });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('An Error Occurred');
+    });
+};

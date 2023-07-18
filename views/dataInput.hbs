@@ -69,32 +69,32 @@
                 <div class="p-12 pl-36 ">
                     <h1 class="text-6xl font-bold h-20">Edit Tree<img class="inline-block" src="/img/leaf.png" alt=""></h1>
                     <p>Update your tree information</p>
-                    <form class="grid grid-flow-row" method="post" action="/edit_tree/new_tree">
+                    <form class="grid grid-flow-row" id="updateForm">
                         <div class="grid grid-flow-col">
-                            <label class="absolute mx-2 bg-white" for="father-fname">Father's Firstname</label>
-                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 mr-10" name="father-fname">
-                            <label class="z-10 w-fit h-fit ml-12 pl-0 bg-white"  for="father-lname">Father's Lastname</label>
-                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 -ml-40" name="father-lname">
+                            <label class="absolute mx-2 bg-white" for="fatherfname">Father's Firstname</label>
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 mr-10" name="fatherfname">
+                            <label class="z-10 w-fit h-fit ml-12 pl-0 bg-white"  for="fatherlname">Father's Lastname</label>
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 -ml-40" name="fatherlname">
                         </div>
                         <div class="grid grid-flow-col">
-                            <label class="absolute mx-2 bg-white" for="mother-fname">Mother's Firstname</label>
-                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 mr-10" name="mother-fname">
-                            <label class="z-10 w-fit h-fit ml-12 pl-0 bg-white"  for="mother-lname">Mother's Lastname</label>
-                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 -ml-40" name="mother-lname">
+                            <label class="absolute mx-2 bg-white" for="motherfname">Mother's Firstname</label>
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 mr-10" name="motherfname">
+                            <label class="z-10 w-fit h-fit ml-12 pl-0 bg-white"  for="motherlname">Mother's Lastname</label>
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 -ml-40" name="motherlname">
                         </div>
                         <div class="grid grid-flow-col">
-                            <label class="absolute mx-2 bg-white" for="child-fname">Child's Firstname</label>
-                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 mr-10" name="child-fname">
-                            <label class="z-10 w-fit h-fit ml-12 pl-0 bg-white"  for="child-lname">Child's Lastname</label>
-                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 -ml-40" name="child-lname">
+                            <label class="absolute mx-2 bg-white" for="childfname">Child's Firstname</label>
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 mr-10" name="childfname">
+                            <label class="z-10 w-fit h-fit ml-12 pl-0 bg-white"  for="childlname">Child's Lastname</label>
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 -ml-40" name="childlname">
                         </div>
                         <div class="grid grid-flow-col">
-                            <label class="absolute mx-2 bg-white" for="spouse-fname">Child Spouse's Firstname</label>
-                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 mr-10" name="spouse-fname">
-                            <label class="z-10 w-fit h-fit ml-12 pl-0 bg-white"  for="spouse-lname">Child Spouse's Lastname</label>
-                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 -ml-40" name="spouse-lname">
+                            <label class="absolute mx-2 bg-white" for="cspousefname">Child Spouse's Firstname</label>
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 mr-10" name="cspousefname">
+                            <label class="z-10 w-fit h-fit ml-12 pl-0 bg-white"  for="cspouselname">Child Spouse's Lastname</label>
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 -ml-40" name="cspouselname">
                         </div>
-                        <button type="submit" class="h-12 w-56 bg-primary2 text-white rounded-lg my-8">Submit</button>
+                        <button type="submit" class="h-12 w-56 bg-primary2 text-white rounded-lg my-8" id="updateForm">Submit</button>
                         </form>
                 </div>
             </div>
@@ -112,6 +112,38 @@
                 window.location.href = '/logout';
             }
             }
+
+            const updateForm = document.getElementById('updateForm');
+            updateForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const formData = new FormData(updateForm);
+                const updateData = Object.fromEntries(formData);
+
+                //const treeId = 'your-tree-id'; // Replace with the ID of the tree you want to update
+
+                fetch(`/edit_tree/update_tree`, {
+                    method: 'PUT',
+                    headers: {
+                    'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(updateData)
+                })
+                    .then(response => {
+                        console.log('hi')
+                    if (response.ok) {
+                        window.location.href = '/success';
+                        // Update successful
+                        console.log('Tree updated successfully');
+                    } else {
+                        // Update failed
+                        console.error('Error updating tree');
+                    }
+                    })
+                    .catch(error => {
+                    console.error('An error occurred:', error);
+                    });
+            })
         </script>
 </body>
 </html>

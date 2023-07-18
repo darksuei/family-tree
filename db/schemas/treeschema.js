@@ -12,14 +12,14 @@ const treeSchema = new Schema(
         // spouse: Schema.Types.String,
         // children: Schema.Types.Mixed
         email: Schema.Types.String,
-        fathersfirstname : Schema.Types.String,
-        fatherslastname : Schema.Types.String,
-        mothersfirstname : Schema.Types.String,
-        motherslastname : Schema.Types.String,
-        childfirstname : Schema.Types.String,
-        childlastname : Schema.Types.String,
-        childspousefirstname : Schema.Types.String,
-        childspouselastname : Schema.Types.String,
+        fatherfname : Schema.Types.String,
+        fatherlname : Schema.Types.String,
+        motherfname : Schema.Types.String,
+        motherlname : Schema.Types.String,
+        childfname : Schema.Types.String,
+        childlname : Schema.Types.String,
+        cspousefname : Schema.Types.String,
+        cspouselname : Schema.Types.String,
       }
 )
 module.exports = {treeSchema}
