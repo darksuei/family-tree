@@ -69,33 +69,33 @@
                 <div class="p-12 pl-36 ">
                     <h1 class="text-6xl font-bold h-20">Edit Tree<img class="inline-block" src="/img/leaf.png" alt=""></h1>
                     <p>Update your tree information</p>
-                    <form class="grid grid-flow-row" id="updateForm">
+                    <form class="grid grid-flow-row" id="updateForm" action="/edit_tree/update_tree" method="put">
                         <div class="grid grid-flow-col">
                             <label class="absolute mx-2 bg-white" for="fatherfname">Father's Firstname</label>
-                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 mr-10" name="fatherfname">
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 mr-10" name="fatherfname" id="fatherfname">
                             <label class="z-10 w-fit h-fit ml-12 pl-0 bg-white"  for="fatherlname">Father's Lastname</label>
-                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 -ml-40" name="fatherlname">
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 -ml-40" name="fatherlname" id="fatherlname">
                         </div>
                         <div class="grid grid-flow-col">
                             <label class="absolute mx-2 bg-white" for="motherfname">Mother's Firstname</label>
-                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 mr-10" name="motherfname">
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 mr-10" name="motherfname" id="motherfname">
                             <label class="z-10 w-fit h-fit ml-12 pl-0 bg-white"  for="motherlname">Mother's Lastname</label>
-                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 -ml-40" name="motherlname">
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 -ml-40" name="motherlname" id="motherlname">
                         </div>
                         <div class="grid grid-flow-col">
                             <label class="absolute mx-2 bg-white" for="childfname">Child's Firstname</label>
-                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 mr-10" name="childfname">
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 mr-10" name="childfname" id="childfname">
                             <label class="z-10 w-fit h-fit ml-12 pl-0 bg-white"  for="childlname">Child's Lastname</label>
-                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 -ml-40" name="childlname">
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 -ml-40" name="childlname" id="childlname">
                         </div>
                         <div class="grid grid-flow-col">
                             <label class="absolute mx-2 bg-white" for="cspousefname">Child Spouse's Firstname</label>
-                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 mr-10" name="cspousefname">
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 mr-10" name="cspousefname" id="cspousefname">
                             <label class="z-10 w-fit h-fit ml-12 pl-0 bg-white"  for="cspouselname">Child Spouse's Lastname</label>
-                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 -ml-40" name="cspouselname">
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2 -ml-40" name="cspouselname" id="cspouselname">>
                         </div>
                         <button type="submit" class="h-12 w-56 bg-primary2 text-white rounded-lg my-8" id="updateForm">Submit</button>
-                        </form>
+                    </form>
                 </div>
             </div>
         </div>
@@ -106,44 +106,6 @@
         </div> -->
     </div>
         <script type="text/javascript" src="javascripts/dataInput.js"></script>
-        <script>
-            function confirmLogout() {
-            if (confirm('Are you sure you want to log out?')) {
-                window.location.href = '/logout';
-            }
-            }
-
-            const updateForm = document.getElementById('updateForm');
-            updateForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-
-                const formData = new FormData(updateForm);
-                const updateData = Object.fromEntries(formData);
-
-                //const treeId = 'your-tree-id'; // Replace with the ID of the tree you want to update
-
-                fetch(`/edit_tree/update_tree`, {
-                    method: 'PUT',
-                    headers: {
-                    'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(updateData)
-                })
-                    .then(response => {
-                        console.log('hi')
-                    if (response.ok) {
-                        window.location.href = '/success';
-                        // Update successful
-                        console.log('Tree updated successfully');
-                    } else {
-                        // Update failed
-                        console.error('Error updating tree');
-                    }
-                    })
-                    .catch(error => {
-                    console.error('An error occurred:', error);
-                    });
-            })
-        </script>
+        <script type="text/javascript" src="javascripts/edit.js" defer></script>
 </body>
 </html>

@@ -6,7 +6,6 @@ var logger = require('morgan');
 var session = require('express-session');
 
 require("dotenv").config();
-var connectDB = require("./db/connect");
 var cors = require("cors");
 
 var app = express();
@@ -30,9 +29,6 @@ var editRouter = require('./routes/display');
 var getdataRouter = require('./routes/getData');
 var defaulttreeRouter = require('./routes/default_family_tree');
 var treesearchRouter = require('./routes/family_tree_search');
-
-
-console.log(`Session secret: ${process.env.SESSION_SECRET}`);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
