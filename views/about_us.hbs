@@ -17,28 +17,33 @@
         <!-- Navbar -->
         <div class="bg-primary1 text-white grid grid-flow-row">
             <div class="grid grid-flow-col grid-cols-4 h-24 px-10">
-                <div class="grid grid-flow-col col-span-2 items-center">
+          <div class="grid grid-flow-col  items-center">
                     <img src="/img/logo.png" alt="">
-                    <ul class="grid grid-flow-col">
+          </div>
+                <div class="col-span-2 grid justify-center items-center">
+                    <ul class="grid grid-flow-col gap-28">
                         <li class="transition hover:underline"><a href="/">Home</a></li>
                         <li class="transition hover:underline"><a href="/edit_tree">Edit</a></li>
                         <li class="transition hover:underline"><a href="/about">Learn More</a></li>
                     </ul>
                 </div>
-                <div></div>
-                <div class="grid grid-flow-col pl-4 items-center">
-                    <a href="/login" class="bg-white rounded-md text-primary1 w-44 p-4 text-center shadow-md">Login</>
-                    <a class="" href="/signup">Sign Up</a>
+        <div class="grid grid-flow-col items-center text-xl ml-0">
+          {{#if loggedIn}}
+            <a href="/login" onclick="confirmLogout()" class="border-primary2 bg-white text-primary1 border-l-2 rounded-md shadow-primary2 shadow-lg w-36 p-4 text-center  hover:text-white hover:bg-primary1">Logout</a>
+          {{else}}
+            <a href="/login" class="border-primary2 bg-white text-primary1 border-l-2 rounded-md shadow-primary2 shadow-lg w-36 p-4 text-center  hover:text-white hover:bg-primary1">Login</a>
+            <a class=" text-white border-primary2 border-l-2 rounded-md shadow-primary2 shadow-lg w-36 p-4 text-center" href="/signup">Sign Up</a>
+          {{/if}}
                 </div>
             </div>
-            <div class="bg-primary2 grid grid-flow-col justify-center">
+      <div class="bg-primary2 grid grid-flow-col justify-center h-10 items-center">
                 <img class="" src="/img/star.png" alt="">
                 <p>Documenting generations and more to come.....</p>
             </div>
         </div>
         <!-- main page -->
         <div class="">
-            <div class=" grid grid-flow-col p-28 text-primary2 h-64 absolute">
+        <div class="grid grid-flow-col p-28 text-primary2 h-64 absolute">
                 <div>
                     <img class="w-96 -ml-10 rounded-sm" src="/img/home_pic.jpg" alt="">
                 </div>

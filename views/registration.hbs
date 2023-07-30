@@ -20,21 +20,22 @@
         <!-- Navbar -->
         <div class="bg-primary1 text-white grid grid-flow-row">
             <div class="grid grid-flow-col grid-cols-4 h-24 px-10">
-                <div class="grid grid-flow-col col-span-2 items-center">
+                <div class="grid grid-flow-col items-center">
                     <img src="/img/logo.png" alt="">
-                    <ul class="grid grid-flow-col">
-                        <li class="transition hover:underline"><a href="/">Home</a></li>
-                        <li class="transition hover:underline"><a href="/about">About Us</a></li>
-                        <li class="transition hover:underline"><a href="/about">Learn More</a></li>
+                </div>
+                <div class="col-span-2 grid justify-center items-center">
+                    <ul class="grid grid-flow-col gap-28">
+                        <li class="transition hover:underline duration-1000 ease-in-out"><a href="/">Home</a></li>
+                        <li class="transition hover:underline duration-1000 ease-in-out"><a href="/about">About Us</a></li>
+                        <li class="transition hover:underline duration-1000 ease-in-out"><a href="/about">Learn More</a></li>
                     </ul>
                 </div>
-                <div></div>
-                <div class="grid grid-flow-col pl-4 items-center">
-                    <a href="/login" class="bg-white rounded-md text-primary1 w-44 p-4 text-center shadow-md">Login</>
-                    <a class="" href="/signup">Sign Up</a>
+                <div class="grid grid-flow-col items-center text-xl ml-0">
+                    <a href="/login" class=" text-white border-primary2 border-l-2 rounded-md shadow-primary2 shadow-lg w-36 p-4 text-center">Login</a>
+                    <a class="border-primary2 bg-white text-primary1 border-l-2 rounded-md shadow-primary2 shadow-lg w-36 p-4 text-center  hover:text-white hover:bg-primary1" href="/signup">Sign Up</a>
                 </div>
             </div>
-            <div class="bg-primary2 grid grid-flow-col justify-center">
+            <div class="bg-primary2 grid grid-flow-col justify-center h-10 items-center">
                 <img class="" src="/img/star.png" alt="">
                 <p>Documenting generations and more to come.....</p>
             </div>
@@ -53,7 +54,7 @@
                 </div>
                 <div class="p-12 pl-36 ">
                     <h1 class="text-6xl font-bold h-20">Sign Up<img class="inline-block" src="/img/leaf.png" alt=""></h1>
-                    <p>Create an account and a password for easy login.</p>
+                    <p class="pb-4">Create an account and a password for easy login.</p>
                     {{!-- {{#if success}}
                     <form class="grid grid-flow-row" action="/success" method="post">
                     {{else}}
@@ -92,7 +93,7 @@
                 {{!-- FORM IS REPEATED TWICE --}}
                 <div class="p-12 pl-36 ">
                     <h1 class="text-6xl font-bold h-20">Sign Up<img class="inline-block" src="/img/leaf.png" alt=""></h1>
-                    <p>Create an account and a password for easy login.</p>
+                    <p class="pb-4">Create an account and a password for easy login.</p>
                     {{#if success}}
                     <form class="grid grid-flow-row" action="/success" method="post">
                     {{else}}
