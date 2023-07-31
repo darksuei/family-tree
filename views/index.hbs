@@ -13,24 +13,25 @@
   </style> --}}
 </head>
 <body>
-    <div class=" grid grid-flow-row ">
   <!-- Navbar -->
+  <div class="grid grid-flow-row">
     <div class="bg-primary1 text-white grid grid-flow-row">
       <div class="grid grid-flow-col grid-cols-4 h-24 px-10">
-        <div class="grid grid-flow-col col-span-2 items-center">
+                <div class="grid grid-flow-col  items-center">
           <img src="/img/logo.png" alt="">
-          <ul class="grid grid-flow-col">
+                </div>
+                <div class="col-span-2 grid justify-center items-center">
+                    <ul class="grid grid-flow-col gap-28">
             <li class="transition hover:underline"><a href="/">Home</a></li>
             <li class="transition hover:underline"><a href="/about">About Us</a></li>
-         si {{#if isloggedIn}}
+         {{#if isloggedIn}}
               <li class="transition hover:underline"><a href="/edit_tree">Edit Tree</a></li>
             {{else}}
               <li class="transition hover:underline"><a href="/about">Learn More</a></li>
             {{/if}}
           </ul>
         </div>
-        <div></div>
-        <div class="grid grid-flow-col pl-4 items-center">
+        <div class="grid grid-flow-col items-center text-xl ml-0">
           {{#if isloggedIn}}
             <a href="/logout" onclick="confirmLogout()" class="bg-white rounded-md text-primary1 w-44 p-4 text-center shadow-md">Logout</a>
           {{else}}

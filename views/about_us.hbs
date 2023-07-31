@@ -17,11 +17,9 @@
         <!-- Navbar -->
         <div class="bg-primary1 text-white grid grid-flow-row">
             <div class="grid grid-flow-col grid-cols-4 h-24 px-10">
-          <div class="grid grid-flow-col  items-center">
+                <div class="grid grid-flow-col col-span-2 items-center">
                     <img src="/img/logo.png" alt="">
-          </div>
-                <div class="col-span-2 grid justify-center items-center">
-                    <ul class="grid grid-flow-col gap-28">
+                    <ul class="grid grid-flow-col">
                         <li class="transition hover:underline"><a href="/">Home</a></li>
                         {{#if isloggedIn}}
                         <li class="transition hover:underline"><a href="/edit_tree">Edit Tree</a></li>
@@ -42,7 +40,7 @@
                     {{/if}}
                 </div>
             </div>
-      <div class="bg-primary2 grid grid-flow-col justify-center h-10 items-center">
+            <div class="bg-primary2 grid grid-flow-col justify-center">
                 <img class="" src="/img/star.png" alt="">
                 <p>Documenting generations and more to come.....</p>
             </div>
