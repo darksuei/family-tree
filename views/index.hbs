@@ -5,16 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="output.css" rel="stylesheet">
-  <style>
+  {{!-- <style>
     html, body {
       margin: 0;
       padding: 0;
     }
-  </style>
+  </style> --}}
 </head>
 <body>
+    <div class=" grid grid-flow-row ">
   <!-- Navbar -->
-  <div class="grid grid-flow-row">
     <div class="bg-primary1 text-white grid grid-flow-row">
       <div class="grid grid-flow-col grid-cols-4 h-24 px-10">
         <div class="grid grid-flow-col col-span-2 items-center">
@@ -22,7 +22,7 @@
           <ul class="grid grid-flow-col">
             <li class="transition hover:underline"><a href="/">Home</a></li>
             <li class="transition hover:underline"><a href="/about">About Us</a></li>
-            {{#if isloggedIn}}
+         si {{#if isloggedIn}}
               <li class="transition hover:underline"><a href="/edit_tree">Edit Tree</a></li>
             {{else}}
               <li class="transition hover:underline"><a href="/about">Learn More</a></li>
@@ -34,12 +34,12 @@
           {{#if isloggedIn}}
             <a href="/logout" onclick="confirmLogout()" class="bg-white rounded-md text-primary1 w-44 p-4 text-center shadow-md">Logout</a>
           {{else}}
-            <a href="/login" class="bg-white rounded-md text-primary1 w-44 p-4 text-center shadow-md">Login</a>
-            <a class="" href="/signup">Sign Up</a>
+            <a href="/login" class="border-primary2 bg-white text-primary1 border-l-2 rounded-md shadow-primary2 shadow-lg w-36 p-4 text-center  hover:text-white hover:bg-primary1">Login</a>
+            <a class=" text-white border-primary2 border-l-2 rounded-md shadow-primary2 shadow-lg w-36 p-4 text-center" href="/signup">Sign Up</a>
           {{/if}}
         </div>
       </div>
-      <div class="bg-primary2 grid grid-flow-col justify-center">
+      <div class="bg-primary2 grid grid-flow-col justify-center h-10 items-center">
         <img class="" src="/img/star.png" alt="">
         <p>Documenting generations and more to come.....</p>
       </div>
@@ -73,16 +73,16 @@
         </div>
         <div class="z-10 grid grid-flow-row w-full bg-transparent text-primary2 h-64 absolute">
           <div class="grid grid-flow-row grid-rows-6">
-            <div class="border-green-700 grid grid-flow-col justify-end">
+            <div class=" grid grid-flow-col justify-end">
               <div class="h-8 w-80 bg-white shadow-xl border-x-2 border-b-4"></div>
             </div>
-            <div class="border-blue-700">
+            <div class="">
               <div class="z-10 h-28 w-36 opacity-60 blur-sm mx-8 bg-white shadow-2xl"></div>
             </div>
-            <div class="border-red-700">
+            <div class="">
               <div class="z-10 h-20 mx-96 w-28 opacity-60 blur-sm mx-8 bg-white shadow-2xl"></div>
             </div>
-            <div class="border-green-700 grid grid-flow-col justify-end">
+            <div class="grid grid-flow-col justify-end">
               <div class="h-8 w-36 mr-52 bg-white shadow-xl mt-28 border-x-2 border-b-4"></div>
             </div>
           </div>
