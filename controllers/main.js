@@ -37,7 +37,14 @@ const constructobj = (obj)=>{
 }
 
 module.exports.index = function(req, res) {
-  res.render(path.join(__dirname,'..','views','index'), { title: 'Uchegbu Family Tree' });
+  let isloggedIn = false;
+  if(req.session.data){
+    isloggedIn = true;
+  }else{
+    console.log("No session data...!")
+    isloggedIn = false;
+  }
+  res.render(path.join(__dirname,'..','views','index'), { title: 'Uchegbu Family Tree', isloggedIn: isloggedIn });
 }  
 
 module.exports.loggedIn = function(req, res) {
@@ -45,11 +52,17 @@ module.exports.loggedIn = function(req, res) {
 }
 
 module.exports.about = function(req, res) {
-  res.render(path.join(__dirname,'..','views','about_us'), { title: 'About Us' });
+  if(req.session.data){
+    isloggedIn = true;
+  }else{
+    isloggedIn = false;
+  }
+  res.render(path.join(__dirname,'..','views','about_us'), { title: 'About Us', isloggedIn: isloggedIn });
 }
 
 module.exports.success = function(req, res) {
-  res.render(path.join(__dirname,'..','views','success'), { title: 'Registration Success' });
+  let text = "Successful..!"
+  res.render(path.join(__dirname,'..','views','success'), { title: 'Success', text: text });
 }
 
 module.exports.family_tree_search = async function(req, res) {
@@ -92,21 +105,55 @@ module.exports.register = function(req, res) {
 res.render(path.join(__dirname,'..','views','registration'), { title: 'Uchegbu Family Tree | Sign Up' });
 }
 
-module.exports.display = function(req, res) {
-  if(req.method === 'post'){
-    console.log(req.query)
-      const tree = new Tree(
-        constructobj(Object.values(req.query))
-      )
-      tree.save().then(()=>{
-        console.log("works")
-        res.status(200);
-        res.render(path.join(__dirname,'..','views','dataInput', {title: 'Edit Family Tree'}));
+module.exports.edit = function(req, res) {
+    let currentuseremail = req.session.data.user.email;
+    const treedata = Tree.findOne({email:currentuseremail})
+    res.status(201)
+    res.render(path.join(__dirname,'..','views','dataInput'),{title: 'Edit Family Tree', data:treedata});
+  }
+
+module.exports.editpost = function (req,res){
+    let treeobj = req.body;
+    treeobj.email = req.session.data.user.email;
+
+    // let treeobj = constructobj(Object.values(req.query)) RECURSSION FUNCTION
+
+    Tree.create(treeobj).then(()=>{
+        res.status(200).render(path.join(__dirname,'..','views','success'), {title: 'Success'});
       }).catch((error)=>{
         console.log(error)
-      res.status(400).send(error);
-    })}else{
-    res.status(201)
-    res.render(path.join(__dirname,'..','views','dataInput'),{title: 'Edit Family Tree'});
+        res.status(400).send(error);
+  })
+}
+
+module.exports.editput = function (req, res) {
+  let currentuseremail = req.session.data.user.email;
+
+  const nonEmptyFields = {};
+
+  // Iterate through the properties of req.body and filter out empty values
+  for (let key in req.body) {
+    if (req.body[key] !== null && req.body[key] !== undefined && req.body[key] !== '') {
+      nonEmptyFields[key] = req.body[key];
+    }
   }
-  }
+
+  console.log(nonEmptyFields); // Log the non-empty fields
+
+  Tree.findOneAndUpdate({ email: currentuseremail }, nonEmptyFields, { new: true, useFindAndModify: false })
+    .then((updatedtree) => {
+      if (updatedtree) {
+        // Tree found and updated successfully
+        return updatedtree.save();
+      } else {
+        res.status(404).send("Tree data not found");
+      }
+    })
+    .then(() => {
+      res.render(path.join(__dirname, '..', 'views', 'success'), { title: 'Success' });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).send('An Error Occurred');
+    });
+};

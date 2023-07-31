@@ -6,8 +6,17 @@ var logger = require('morgan');
 var session = require('express-session');
 
 require("dotenv").config();
-var connectDB = require("./db/connect");
 var cors = require("cors");
+
+var app = express();
+app.use(session({
+  secret: process.env.SESSION_SECRET, 
+  resave: false,
+  saveUninitialized: false,
+  // cookie: {
+  //   maxAge: 0
+  // }
+}));
 
 var authRouter = require('./routes/auth');
 var indexRouter = require('./routes/index');
@@ -20,13 +29,6 @@ var editRouter = require('./routes/display');
 var getdataRouter = require('./routes/getData');
 var defaulttreeRouter = require('./routes/default_family_tree');
 var treesearchRouter = require('./routes/family_tree_search');
-
-var app = express();
-app.use(session({
-  secret: 'kL23t57gg61l', //use env variable for this instead of hardcoding
-  resave: false,
-  saveUninitialized: true
-}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -1,7 +1,6 @@
 
 //  * Creating a dynamic Input field for the family info
 // */
-console.log("a");
 // const addbtn = document.querySelector(".add");
 
 const body = document.querySelector("body");
