@@ -17,12 +17,14 @@
         <!-- Navbar -->
         <div class="bg-primary1 text-white grid grid-flow-row">
             <div class="grid grid-flow-col grid-cols-4 h-24 px-10">
-                <div class="grid grid-flow-col col-span-2 items-center">
+                <div class="grid grid-flow-col items-center">
                     <img src="/img/logo.png" alt="">
-                    <ul class="grid grid-flow-col">
-                        <li class="transition hover:underline"><a href="/">Home</a></li>
-                        <li class="transition hover:underline"><a href="/uchegbu_family_tree">View Tree</a></li>
-                        <li class="transition hover:underline"><a href="/about">Learn More</a></li>
+                </div>
+                <div class="grid grid-flow-col col-span-3 items-center">
+                    <ul class="grid grid-flow-col gap-20 items-center">
+                        <li class="transition hover:underline duration-1000 ease-in-out"><a href="/">Home</a></li>
+                        <li class="transition hover:underline duration-1000 ease-in-out"><a href="/uchegbu_family_tree">View Tree</a></li>
+                        <li class="transition hover:underline duration-1000 ease-in-out"><a href="/about">Learn More</a></li>
                     </ul>
                 </div>
                 <div></div>
@@ -68,7 +70,7 @@
                 </div>
                 <div class="p-12 pl-36 ">
                     <h1 class="text-6xl font-bold h-20">Edit Tree<img class="inline-block" src="/img/leaf.png" alt=""></h1>
-                    <p>Update your tree information</p>
+                    <p class="pb-4">Update your tree information</p>
                     <form class="grid grid-flow-row" id="updateForm" action="/edit_tree/update_tree" method="put">
                         <div class="grid grid-flow-col">
                             <label class="absolute mx-2 bg-white" for="fatherfname">Father's Firstname</label>
