@@ -62,7 +62,11 @@ module.exports.about = function(req, res) {
 
 module.exports.success = function(req, res) {
   let text = "Successful..!"
-  res.render(path.join(__dirname,'..','views','success'), { title: 'Success', text: text });
+  isloggedIn = false;
+  if(req.session.data){
+    isloggedIn = true;
+  }
+  res.render(path.join(__dirname,'..','views','success'), { title: 'Success', text: text, isloggedIn: isloggedIn });
 }
 
 module.exports.family_tree_search = async function(req, res, next) {
@@ -93,7 +97,7 @@ module.exports.logout = function(req, res) {
   if(req.session.data){
     req.session.destroy((err) => {
       if (err) {
-        console.log(err);
+        console.error(err);
       } else {
         res.render(path.join(__dirname,'..','views','index'), { title: 'Family Tree', message: 'Successfully logged out..!', alerttype: "success" });
       }
@@ -108,11 +112,13 @@ res.render(path.join(__dirname,'..','views','registration'), { title: 'Uchegbu F
 }
 
 module.exports.edit = function(req, res) {
-    let currentuseremail = req.session.data.user.email;
-    const treedata = Tree.findOne({email:currentuseremail})
-    res.status(201)
-    res.render(path.join(__dirname,'..','views','dataInput'),{title: 'Edit Family Tree', data:treedata});
-  } 
+    Tree.findOne({email:req.session.data.user.email}, (err, data) => {
+      if (err) {
+        console.error(err);
+      }
+      res.status(201).render(path.join(__dirname,'..','views','dataInput'),{title: 'Edit Family Tree', data:data});
+    });
+} 
 
 module.exports.editpost = function (req,res){
     let usertree = {
@@ -130,11 +136,10 @@ module.exports.editpost = function (req,res){
         }
       ]
     }
-    console.log(usertree)
     // let treeobj = constructobj(Object.values(req.query)) RECURSSION FUNCTION
 
   Tree.create(usertree).then(() => {
-    res.status(200).render(path.join(__dirname, '..', 'views', 'success'), { title: 'Success' });
+    res.status(200).redirect('/success');
   }).catch((error) => {
     console.log(error)
     res.status(400).send(error);
@@ -166,14 +171,13 @@ module.exports.editput = function (req, res) {
     ]
   }
 
-  if(Tree.findOne({email: req.session.data.user.email})){
     Tree.findOneAndUpdate({ email: req.session.data.user.email }, usertree, { new: true, useFindAndModify: false })
     .then((updatedtree) => {
       if (updatedtree) {
         // Tree found and updated successfully
         return updatedtree.save();
       } else {
-        res.status(404).send("Tree data not found");
+        res.status(404).send("Tree data not found ");
       }
     })
     .then(() => {
@@ -183,12 +187,4 @@ module.exports.editput = function (req, res) {
       console.error(err);
       res.status(500).send('An Error Occurred');
     });
-  }else{
-    Tree.create(usertree).then(()=>{
-      res.status(200).render(path.join(__dirname,'..','views','success'), {title: 'Success'});
-    }).catch((error)=>{
-      console.log(error)
-      res.status(400).send(error);
-})
-  }
 };
