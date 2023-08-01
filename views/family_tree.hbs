@@ -5,15 +5,12 @@
         <meta name="viewport" content="width=device-width">
         <link href="css/tree.css" rel="stylesheet">
 		<script>
-			let parsedurl = '{{newurl}}'
-			//let url = parsedurl.slice(0,15) + '=' + parsedurl.slice(21)
-			var gdata = null;
-			async function fetchData() {
-				const response = await fetch(parsedurl);
+			var email = "{{email}}";
+			const fetchData = async function(){
+				const response = await fetch('/getdata');
 				const data = await response.json();
-				gdata = data;
+				return data;
 			}
-			 
 		</script>
         <script crossorigin="anonymous" src="javascripts/d3.v4.js"></script> 
         <meta charset="UTF-8">

@@ -9,10 +9,10 @@ var svg = d3.select('body').append('svg').attr('width',width - 50).attr('height'
 var chartGroup = svg.append('g').attr('transform','translate('+margin.left+','+margin.top+')');
 
 var mainfunc = async function(){
-        let x = await fetchData();
-        var heading = gdata.treeDetails.name + "'s family tree"
+        let gdata = await fetchData();
+        var heading = gdata.fatherfname + "'s family tree"
         heading = heading.toUpperCase()
-        let mdata = gdata.treeDetails;
+        let mdata = gdata;
         let data =[]
         data.push(mdata)
         if(data){

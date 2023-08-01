@@ -65,22 +65,19 @@ module.exports.success = function(req, res) {
   res.render(path.join(__dirname,'..','views','success'), { title: 'Success', text: text });
 }
 
-module.exports.family_tree_search = async function(req, res) {
-  const url = req.originalUrl;
-  // console.log(url);
-  let slicedurl = url.slice(19);
-  console.log(slicedurl)
-  let newurl = '/getdata/'+req.session.data.user.email
-  console.log(newurl)
-  res.render(path.join(__dirname,'..','views','family_tree'), { title: 'Family Tree', newurl: newurl});
+module.exports.family_tree_search = async function(req, res, next) {
+  if(req.session.data){
+    var email = req.session.data.user.email;
+    res.render(path.join(__dirname,'..','views','family_tree'),{email:email});
+   }else{
+    res.send("Please Login to view this page...!")
+   }
 }
 
 module.exports.getData = async function (req,res){
-  // let searchstr = req.query.search;
-  console.log(req.params.email)
+  var email = req.session.data.user.email;
   var treeDetails = await Tree.findOne({email:email},{'_id': false, '__v': false});
-  var data = { title: 'Family Tree', treeDetails:treeDetails};
-  res.send(data);
+  res.send(treeDetails);
 }
 
 module.exports.default_tree = async function (req,res){
