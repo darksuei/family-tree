@@ -67,17 +67,18 @@ module.exports.success = function(req, res) {
 
 module.exports.family_tree_search = async function(req, res) {
   const url = req.originalUrl;
-  console.log(url);
+  // console.log(url);
   let slicedurl = url.slice(19);
   console.log(slicedurl)
-  let newurl = '/getdata'+slicedurl
+  let newurl = '/getdata/'+req.session.data.user.email
   console.log(newurl)
   res.render(path.join(__dirname,'..','views','family_tree'), { title: 'Family Tree', newurl: newurl});
 }
 
 module.exports.getData = async function (req,res){
-  let searchstr = req.query.search;
-  var treeDetails = await Tree.findOne({name:searchstr},{'_id': false, '__v': false});
+  // let searchstr = req.query.search;
+  console.log(req.params.email)
+  var treeDetails = await Tree.findOne({email:email},{'_id': false, '__v': false});
   var data = { title: 'Family Tree', treeDetails:treeDetails};
   res.send(data);
 }
@@ -92,13 +93,17 @@ res.render(path.join(__dirname,'..','views','login'), { title: 'Uchegbu Family t
 }
 
 module.exports.logout = function(req, res) {
-  req.session.destroy((err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render(path.join(__dirname,'..','views','index'), { title: 'Family Tree', message: 'Successfully logged out..!', alerttype: "success" });
-    }
-  });
+  if(req.session.data){
+    req.session.destroy((err) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.render(path.join(__dirname,'..','views','index'), { title: 'Family Tree', message: 'Successfully logged out..!', alerttype: "success" });
+      }
+    });
+  }else{
+    res.redirect('/');
+  }
 }
 
 module.exports.register = function(req, res) {
@@ -126,6 +131,13 @@ module.exports.editpost = function (req,res){
   })
 }
 
+module.exports.editputpost = function (req,res,next){
+  if (req.headers['x-http-method-override'] === 'PUT') {
+    req.method = 'PUT';
+  }
+  next();
+}
+
 module.exports.editput = function (req, res) {
   let currentuseremail = req.session.data.user.email;
 
@@ -150,7 +162,7 @@ module.exports.editput = function (req, res) {
       }
     })
     .then(() => {
-      res.render(path.join(__dirname, '..', 'views', 'success'), { title: 'Success' });
+      res.status(200).redirect('/success');
     })
     .catch((err) => {
       console.error(err);
