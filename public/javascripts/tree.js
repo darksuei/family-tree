@@ -10,7 +10,7 @@ var chartGroup = svg.append('g').attr('transform','translate('+margin.left+','+m
 
 var mainfunc = async function(){
         let gdata = await fetchData();
-        var heading = gdata.fatherfname + "'s family tree"
+        var heading = gdata.name + "'s family tree"
         heading = heading.toUpperCase()
         let mdata = gdata;
         let data =[]

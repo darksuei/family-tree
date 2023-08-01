@@ -115,12 +115,25 @@ module.exports.edit = function(req, res) {
   }
 
 module.exports.editpost = function (req,res){
-    let treeobj = req.body;
-    treeobj.email = req.session.data.user.email;
-
+    let usertree = {
+      "email" : req.session.data.user.email,
+      "name" : req.body.fatherfname +" "+ req.body.fatherlname,
+      "parent" : "root",
+      "married" : "+",
+      "spouse" : req.body.motherfname +" "+ req.body.motherlname,
+      "children" : [
+        {
+          "name" : req.body.childfname +" "+ req.body.childlname,
+          "parent" : req.body.fatherfname +" "+ req.body.fatherlname,
+          "married" : "+",
+          "spouse" : req.body.cspousefname +" "+ req.body.cspouselname
+        }
+      ]
+    }
+    console.log(usertree)
     // let treeobj = constructobj(Object.values(req.query)) RECURSSION FUNCTION
 
-    Tree.create(treeobj).then(()=>{
+    Tree.create(usertree).then(()=>{
         res.status(200).render(path.join(__dirname,'..','views','success'), {title: 'Success'});
       }).catch((error)=>{
         console.log(error)
@@ -136,20 +149,34 @@ module.exports.editputpost = function (req,res,next){
 }
 
 module.exports.editput = function (req, res) {
-  let currentuseremail = req.session.data.user.email;
+  // let currentuseremail = req.session.data.user.email;
+  // const nonEmptyFields = {};
 
-  const nonEmptyFields = {};
+  // // Iterate through the properties of req.body and filter out empty values
+  // for (let key in req.body) {
+  //   if (req.body[key] !== null && req.body[key] !== undefined && req.body[key] !== '') {
+  //     nonEmptyFields[key] = req.body[key];
+  //   }
+  // }
 
-  // Iterate through the properties of req.body and filter out empty values
-  for (let key in req.body) {
-    if (req.body[key] !== null && req.body[key] !== undefined && req.body[key] !== '') {
-      nonEmptyFields[key] = req.body[key];
-    }
+  let usertree = {
+    "email" : req.session.data.user.email,
+    "name" : req.body.fatherfname +" "+ req.body.fatherlname,
+    "parent" : "root",
+    "married" : "+",
+    "spouse" : req.body.motherfname +" "+ req.body.motherlname,
+    "children" : [
+      {
+        "name" : req.body.childfname +" "+ req.body.childlname,
+        "parent" : req.body.fatherfname +" "+ req.body.fatherlname,
+        "married" : "+",
+        "spouse" : req.body.cspousefname +" "+ req.body.cspouselname
+      }
+    ]
   }
+  console.log(usertree)
 
-  console.log(nonEmptyFields); // Log the non-empty fields
-
-  Tree.findOneAndUpdate({ email: currentuseremail }, nonEmptyFields, { new: true, useFindAndModify: false })
+  Tree.findOneAndUpdate({ email: req.session.data.user.email }, usertree, { new: true, useFindAndModify: false })
     .then((updatedtree) => {
       if (updatedtree) {
         // Tree found and updated successfully
