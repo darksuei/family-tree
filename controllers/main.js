@@ -112,7 +112,7 @@ module.exports.edit = function(req, res) {
     const treedata = Tree.findOne({email:currentuseremail})
     res.status(201)
     res.render(path.join(__dirname,'..','views','dataInput'),{title: 'Edit Family Tree', data:treedata});
-  }
+  } 
 
 module.exports.editpost = function (req,res){
     let usertree = {
@@ -133,11 +133,11 @@ module.exports.editpost = function (req,res){
     console.log(usertree)
     // let treeobj = constructobj(Object.values(req.query)) RECURSSION FUNCTION
 
-    Tree.create(usertree).then(()=>{
-        res.status(200).render(path.join(__dirname,'..','views','success'), {title: 'Success'});
-      }).catch((error)=>{
-        console.log(error)
-        res.status(400).send(error);
+  Tree.create(usertree).then(() => {
+    res.status(200).render(path.join(__dirname, '..', 'views', 'success'), { title: 'Success' });
+  }).catch((error) => {
+    console.log(error)
+    res.status(400).send(error);
   })
 }
 
@@ -149,16 +149,7 @@ module.exports.editputpost = function (req,res,next){
 }
 
 module.exports.editput = function (req, res) {
-  // let currentuseremail = req.session.data.user.email;
-  // const nonEmptyFields = {};
-
-  // // Iterate through the properties of req.body and filter out empty values
-  // for (let key in req.body) {
-  //   if (req.body[key] !== null && req.body[key] !== undefined && req.body[key] !== '') {
-  //     nonEmptyFields[key] = req.body[key];
-  //   }
-  // }
-
+  
   let usertree = {
     "email" : req.session.data.user.email,
     "name" : req.body.fatherfname +" "+ req.body.fatherlname,
@@ -174,9 +165,9 @@ module.exports.editput = function (req, res) {
       }
     ]
   }
-  console.log(usertree)
 
-  Tree.findOneAndUpdate({ email: req.session.data.user.email }, usertree, { new: true, useFindAndModify: false })
+  if(Tree.findOne({email: req.session.data.user.email})){
+    Tree.findOneAndUpdate({ email: req.session.data.user.email }, usertree, { new: true, useFindAndModify: false })
     .then((updatedtree) => {
       if (updatedtree) {
         // Tree found and updated successfully
@@ -192,4 +183,12 @@ module.exports.editput = function (req, res) {
       console.error(err);
       res.status(500).send('An Error Occurred');
     });
+  }else{
+    Tree.create(usertree).then(()=>{
+      res.status(200).render(path.join(__dirname,'..','views','success'), {title: 'Success'});
+    }).catch((error)=>{
+      console.log(error)
+      res.status(400).send(error);
+})
+  }
 };
