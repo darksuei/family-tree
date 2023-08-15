@@ -72,13 +72,16 @@
 	}
 	// ]]>
 </script>
-<script>
-	const body = document.getElementById('body');
 
-        function printn(){
-            window.print();
-        }
-</script>
         </div>
+		<script>
+			const image = getElementById('family_tree')
+			const imageUrl = image.toDataUrl()
+			console.log(imageUrl)
+
+			function printn(){
+            window.print();
+        	}
+		</script>
     </body>
 </html>
