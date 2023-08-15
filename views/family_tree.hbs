@@ -23,6 +23,7 @@
 					<li><a href="/signup">Register</a></li>
 					<li><a href="/login">Login</a></li>
 					<li><a href="/edit_tree">Edit Tree</a></li>
+					<li><a onclick="printn()" id="downloadButton">Download Image</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -70,6 +71,13 @@
 		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
 	}
 	// ]]>
+</script>
+<script>
+	const body = document.getElementById('body');
+
+        function printn(){
+            window.print();
+        }
 </script>
         </div>
     </body>
