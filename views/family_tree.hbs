@@ -23,7 +23,7 @@
 					<li><a href="/signup">Register</a></li>
 					<li><a href="/login">Login</a></li>
 					<li><a href="/edit_tree">Edit Tree</a></li>
-					<li><a onclick="printn()" id="downloadButton">Download Image</a></li>
+					<li><a href="" onclick="printTree()" id="downloadButton">Download</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -75,14 +75,11 @@
 
         </div>
 		<script>
-			const image = getElementById('family_tree')
-			const imageUrl = image
-			
+			const imageUrl = getElementById('family_tree')
 
-			function printn(){
-				console.log(imageUrl)
+			function printTree(){
+				window.print();
         	}
 		</script>
     </body>
 </html>
-window.print();

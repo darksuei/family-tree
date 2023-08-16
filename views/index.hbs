@@ -5,12 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="output.css" rel="stylesheet">
-  {{!-- <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-    }
-  </style> --}}
 </head>
 <body>
   <!-- Navbar -->
@@ -18,19 +12,19 @@
     <div class="bg-primary1 text-white grid grid-flow-row">
       <div class="grid grid-flow-col grid-cols-4 h-24 px-10">
                 <div class="grid grid-flow-col  items-center">
-          <img src="/img/logo.png" alt="">
+                <img src="/img/logo.png" alt="">
                 </div>
                 <div class="col-span-2 grid justify-center items-center">
                     <ul class="grid grid-flow-col gap-28">
-            <li class="transition hover:underline"><a href="/">Home</a></li>
-            <li class="transition hover:underline"><a href="/about">About Us</a></li>
-         {{#if isloggedIn}}
-              <li class="transition hover:underline"><a href="/edit_tree">Edit Tree</a></li>
-              <li class="transition hover:underline"><a href="/family_tree_search">View Tree</a></li>
-            {{else}}
-              <li class="transition hover:underline"><a href="/about">Learn More</a></li>
-            {{/if}}
-          </ul>
+                    <li class="transition hover:underline"><a href="/">Home</a></li>
+                    <li class="transition hover:underline"><a href="/about">About Us</a></li>
+                {{#if isloggedIn}}
+                      <li class="transition hover:underline"><a href="/edit_tree">Edit Tree</a></li>
+                      <li class="transition hover:underline"><a href="/family_tree_search">View Tree</a></li>
+                    {{else}}
+                      <li class="transition hover:underline"><a href="/about">Learn More</a></li>
+                    {{/if}}
+                  </ul>
         </div>
         <div class="grid grid-flow-col items-center text-xl ml-0">
           {{#if isloggedIn}}
@@ -59,7 +53,7 @@
       
       <!-- main page -->
       <div class="">
-        <div class="grid grid-flow-col p-28 text-primary2 h-64 absolute">
+        <div class="z-20 grid grid-flow-col p-28 text-primary2 h-64 absolute">
           <div>
             <img class="w-96 -ml-10 rounded-sm" src="/img/home_pic.jpg" alt="">
           </div>
@@ -67,9 +61,9 @@
             <h1 class="text-6xl font-bold h-32 my-6">All your <span class="underline">Family <img class="inline-block" src="/img/leaf.png" alt=""> <br>History</span> in one place.</h1>
             <h3 class="text-lg text-primary1 tracking-widest">THE FAMILY TREE APP</h3>
             {{#if isloggedIn}}
-            <button class="h-12 w-56 bg-primary2 text-white rounded-lg my-8"><a href="/family_tree">Click here to view</a></button>
+            <button class="h-12 w-56 bg-primary2 text-white rounded-lg my-8"><a href="/family_tree_search">Click here to view</a></button>
             {{else}}
-            <button class="h-12 w-56 bg-primary2 text-white rounded-lg my-8"><a href="/signup">Click here to view</a></button>
+            <button class="h-12 w-56 bg-primary2 text-white rounded-lg my-8"><a href="/uchegbu_family_tree">Click here to view</a></button>
             {{/if}}
           </div>
         </div>
@@ -89,20 +83,7 @@
             </div>
           </div>
         </div>
-        <div class=" z-20 grid grid-flow-col p-28 text-primary2 h-64 absolute">
-                <div>
-                    <img class="w-96 -ml-10 rounded-sm" src="" alt="">
-                </div>
-                <div class="p-12 pl-36">
-                    <h1 class="text-6xl font-bold h-32 my-6">All your <span class="underline">Family <img class="inline-block" src="./img/leaf.png" alt=""> <br>History</span> in one place.</h1>
-                    <h3 class="text-lg text-primary1 tracking-widest">THE FAMILY TREE APP</h3>
-                    {{#if isloggedIn}}
-                    <button class="h-12 w-56 bg-primary2 text-white rounded-lg my-8"><a href="/uchegbu_family_tree">Click here to view</a></button>
-                    {{else}}
-                    <button class="h-12 w-56 bg-primary2 text-white rounded-lg my-8"><a href="/signup">Click here to view</a></button>
-                    {{/if}}
-                </div>
-            </div>
+        
       </div>
     </div>
   <script>
