@@ -1082,6 +1082,28 @@ video {
   text-decoration-line: underline;
 }
 
+@media (min-width: 768px) {
+  .md\:mb-20 {
+    margin-bottom: 5rem;
+  }
+
+  .md\:mb-28 {
+    margin-bottom: 7rem;
+  }
+
+  .md\:mb-36 {
+    margin-bottom: 9rem;
+  }
+
+  .md\:pt-20 {
+    padding-top: 5rem;
+  }
+
+  .md\:pb-20 {
+    padding-bottom: 5rem;
+  }
+}
+
 @media (min-width: 1024px) {
   .lg\:absolute {
     position: absolute;
