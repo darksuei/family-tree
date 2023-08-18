@@ -1,119 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/output.css" rel="stylesheet">
     <title>{{title}}</title>
     <style>
-        html, body {
+        html,
+        body {
             margin: 0;
             padding: 0;
         }
-        .z{
+
+        .z {
             z-index: 1000000;
         }
     </style>
 </head>
+
 <body>
-    <div class=" grid grid-flow-row ">
-        <!-- Navbar -->
-        <div class="bg-primary1 text-white grid grid-flow-row">
-            <div class="grid grid-flow-col grid-cols-4 h-24 px-10">
-                <div class="grid grid-flow-col items-center">
+    <!-- Navbar -->
+    <div class="lg:grid lg:grid-flow-row">
+        <div class="bg-primary1 text-white grid lg:grid-flow-row">
+            <div class="px-4 flex justify-between h-24 lg:px-10">
+                <div class="flex items-center lg:grid lg:grid-flow-col">
                     <img src="/img/logo.png" alt="">
                 </div>
-                <div class="col-span-2 grid justify-center items-center">
-                    <ul class="grid grid-flow-col gap-28">
-                        <li class="transition hover:underline duration-1000 ease-in-out"><a href="/">Home</a></li>
-                        <li class="transition hover:underline duration-1000 ease-in-out"><a href="/about">About Us</a></li>
-                        <li class="transition hover:underline duration-1000 ease-in-out"><a href="/about">Learn More</a></li>
+                <div class="hidden w-3/6 pl-52 lg:col-span-2 lg:grid lg:justify-center lg:items-center">
+                    <ul class=" grid grid-flow-col gap-28">
+                        <li class="transition hover:underline"><a href="/">Home</a></l>
+                        <li class="transition hover:underline"><a href="/about">About Us</a></li>
+                        {{#if isloggedIn}}
+                        <li class="transition hover:underline"><a href="/edit_tree">Edit Tree</a></li>
+                        <li class="transition hover:underline"><a href="/family_tree_search">View Tree</a></li>
+                        {{else}}
+                        <li class="transition hover:underline"><a href="/about">Learn More</a></li>
+                        {{/if}}
                     </ul>
                 </div>
-                <div class="grid grid-flow-col items-center text-xl ml-0">
-                    <a href="/login" class=" text-white border-primary2 border-l-2 rounded-md shadow-primary2 shadow-lg w-36 p-4 text-center">Login</a>
-                    <a class="border-primary2 bg-white text-primary1 border-l-2 rounded-md shadow-primary2 shadow-lg w-36 p-4 text-center  hover:text-white hover:bg-primary1" href="/signup">Sign Up</a>
+                <img class="self-center w-8 h-8 lg:hidden" src="/img/menu1.png" alt="">
+                <div class="hidden items-center lg:grid lg:grid-flow-col lg:text-xl lg:ml-0">
+                    {{#if isloggedIn}}
+                    <a href="/logout" onclick="confirmLogout()"
+                        class="bg-white rounded-lg h-fit text-primary1 w-44 p-4 text-center shadow-lg mr-0 ml-40">Logout</a>
+                    {{else}}
+                    <a href="/login"
+                        class="border-primary2 bg-white h-fit text-primary1 border-l-2 rounded-lg shadow-primary2 shadow-lg w-36 p-4 text-center  hover:text-white hover:bg-primary1">Login</a>
+                    <a class=" text-white border-primary2 h-fit border-l-2 rounded-lg shadow-primary2 shadow-lg w-36 p-4 text-center"
+                        href="/signup">Sign Up</a>
+                    {{/if}}
                 </div>
             </div>
-            <div class="bg-primary2 grid grid-flow-col justify-center h-10 items-center">
+            <div class="bg-primary2 flex h-10 items-center justify-center lg:grid lg:grid-flow-col">
                 <img class="" src="/img/star.png" alt="">
                 <p>Documenting generations and more to come.....</p>
             </div>
         </div>
-        <!-- main page -->
-        <div class="">
+        <!-- Navbar -->
+
+        <div>
             {{#if message}}
-                <div class="alert alert-{{alerttype}} text-center show .z" id="fadeDiv" role="alert">
-                    {{message}}
-                    <button type="button" class="close" data-dismiss="alert" id="fadeButton"><span aria-hidden="true">&times;</span></button>
-                </div>
+            <div class="alert alert-{{alerttype}} text-center show" id="fadeDiv" role="alert">
+                {{message}}
+                <button type="button" class="close" data-dismiss="alert" id="fadeButton"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
             {{/if}}
-            <div class=" grid grid-flow-col p-28 text-primary2 h-64 absolute">
+        </div>
+
+        <!-- main page -->
+        <div class="w-screen">
+            {{#if message}}
+            <div class="alert alert-{{alerttype}} text-center show .z" id="fadeDiv" role="alert">
+                {{message}}
+                <button type="button" class="close" data-dismiss="alert" id="fadeButton"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            {{/if}}
+            <div class="hidden lg:grid lg:grid-flow-col lg:p-28 lg:text-primary2 lg:h-64 lg:absolute lg:block ">
                 <div>
                     <img class="w-96 -ml-10 rounded-sm" src="/img/home_pic.jpg" alt="">
                 </div>
-                <div class="p-12 pl-36 ">
-                    <h1 class="text-6xl font-bold h-20">Sign Up<img class="inline-block" src="/img/leaf.png" alt=""></h1>
+                <div class="p-12 lg:pl-36 ">
+                    <h1 class="text-6xl font-bold h-20">Sign Up<img class="inline-block" src="/img/leaf.png" alt="">
+                    </h1>
                     <p class="pb-4">Create an account and a password for easy login.</p>
                     {{!-- {{#if success}}
                     <form class="grid grid-flow-row" action="/success" method="post">
-                    {{else}}
-                    <form class="grid grid-flow-row" action="/signup" method="post">
-                    {{/if}}
-                        <label class="absolute mx-2 bg-white" for="email">Email</label>
-                        <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2" name="email" type="email">
+                        {{else}}
+                        <form class="grid grid-flow-row" action="/signup" method="post">
+                            {{/if}}
+                            <label class="absolute mx-2 bg-white" for="email">Email</label>
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2" name="email"
+                                type="email">
 
-                        <label class="z-10 w-fit mx-2 -mb-6 bg-white" for="password">Password</label>
-                        <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2" name="password" type="password">
+                            <label class="z-10 w-fit mx-2 -mb-6 bg-white" for="password">Password</label>
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2" name="password"
+                                type="password">
 
-                        <button type="submit" class="h-12 w-56 bg-primary2 text-white rounded-lg my-8">Submit</button>
-                    </form> --}}
+                            <button type="submit"
+                                class="h-12 w-56 bg-primary2 text-white rounded-lg my-8">Submit</button>
+                        </form> --}}
                 </div>
             </div>
             <div class=" z-10 grid grid-flow-row w-full bg-transparent text-primary2 h-64 absolute">
-               <div class="grid grid-flow-row grid-rows-6">
-                <div class="border-green-700 grid grid-flow-col justify-end">
-                    <div class="h-8 w-80 bg-white shadow-xl border-x-2 border-b-4"></div>
+                <div class="grid grid-flow-row grid-rows-6">
+                    <div class="border-green-700 grid grid-flow-col justify-end">
+                        <div class="h-8 w-80 bg-white shadow-xl border-x-2 border-b-4"></div>
+                    </div>
+                    <div class="border-blue-700">
+                        <div class="z-10 h-28 w-36 opacity-60 blur-sm mx-8 bg-white shadow-2xl"></div>
+                    </div>
+                    <div class="border-red-700">
+                        <div class="z-10 h-20 mx-96 w-28 opacity-60 blur-sm mx-8 bg-white shadow-2xl"></div>
+                    </div>
+                    <div class="border-green-700 grid grid-flow-col justify-end">
+                        <div class="h-8 w-36 mr-52 bg-white shadow-xl mt-28 border-x-2 border-b-4"></div>
+                    </div>
                 </div>
-                <div class="border-blue-700">
-                    <div class="z-10 h-28 w-36 opacity-60 blur-sm mx-8 bg-white shadow-2xl"></div>
-                </div>
-                <div class="border-red-700">
-                    <div class="z-10 h-20 mx-96 w-28 opacity-60 blur-sm mx-8 bg-white shadow-2xl"></div>
-                </div>
-                <div class="border-green-700 grid grid-flow-col justify-end">
-                    <div class="h-8 w-36 mr-52 bg-white shadow-xl mt-28 border-x-2 border-b-4"></div>
-                </div>
-               </div>
             </div>
             <div class="z-20 grid grid-flow-col p-28 text-primary2 h-64 absolute">
                 <div>
                     <img class="w-96 -ml-10 rounded-sm opacity-0" src="/img/home_pic.jpg" alt="">
                 </div>
                 {{!-- FORM IS REPEATED TWICE --}}
-                <div class="p-12 pl-36 ">
-                    <h1 class="text-6xl font-bold h-20">Sign Up<img class="inline-block" src="/img/leaf.png" alt=""></h1>
+                <div class="p-12 lg:pl-36 ">
+                    <h1 class="text-6xl font-bold h-20">Sign Up<img class="inline-block" src="/img/leaf.png" alt="">
+                    </h1>
                     <p class="pb-4">Create an account and a password for easy login.</p>
                     {{#if success}}
                     <form class="grid grid-flow-row" action="/success" method="post">
-                    {{else}}
-                    <form class="grid grid-flow-row" action="/register" method="post">
-                    {{/if}}
-                        <label class="absolute mx-2 bg-white" for="email">Email</label>
-                        <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2" name="email" type="email">
-                        <label class="z-10 w-fit mx-2 -mb-6 bg-white"  for="password">Password</label>
-                        <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2" name="password" type="password">
-                        
-                        <button type="submit" class="h-12 w-56 bg-primary2 text-white rounded-lg my-8">Submit</button>
-                    </form>
+                        {{else}}
+                        <form class="grid grid-flow-row" action="/register" method="post">
+                            {{/if}}
+                            <label class="absolute mx-2 bg-white" for="email">Email</label>
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2" name="email"
+                                type="email">
+                            <label class="z-10 w-fit mx-2 -mb-6 bg-white" for="password">Password</label>
+                            <input class="border-2 p-4 mt-2 rounded-2xl font-bold text-primary2" name="password"
+                                type="password">
+
+                            <button type="submit"
+                                class="h-12 w-56 bg-primary2 text-white rounded-lg my-8">Submit</button>
+                        </form>
                 </div>
             </div>
         </div>
-        
+
         <!-- footer -->
         <!-- <div>
             <p>Designed By: ITS.</p>
         </div> -->
     </div>
 </body>
+
 </html>
