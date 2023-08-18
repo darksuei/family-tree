@@ -18,6 +18,7 @@
 						<li><a href="/signup">Register</a></li>
 						<li><a href="/login">Login</a></li>
 					{{/if}}
+					<li><a href="#" onclick="printTree()" id="downloadButton">Download</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -67,6 +68,13 @@
 	// ]]>
 </script>
         </div>
-		
+		<script>
+			const imageUrl = getElementById('family_tree')
+
+			function printTree(){
+				window.print();
+        	}
+		</script>
+    </body>
     </body>
 </html>
