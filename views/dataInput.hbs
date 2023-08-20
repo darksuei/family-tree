@@ -16,9 +16,9 @@
 </head>
 
 <body>
-    <!-- Navbar -->
     <div class="lg:grid lg:grid-flow-row">
-        <div class="bg-primary1 text-white grid lg:grid-flow-row">
+        <!-- Navbar -->
+        <div class="hidden bg-primary1 text-white lg:grid lg:grid-flow-row">
             <div class="px-4 flex justify-between h-24 lg:px-10">
                 <div class="flex items-center lg:grid lg:grid-flow-col">
                     <img src="/img/logo.png" alt="">
@@ -47,6 +47,51 @@
                         href="/signup">Sign Up</a>
                     {{/if}}
                 </div>
+            </div>
+            <div class="bg-primary2 flex h-10 items-center justify-center lg:grid lg:grid-flow-col">
+                <img class="" src="/img/star.png" alt="">
+                <p>Documenting generations and more to come.....</p>
+            </div>
+        </div>
+        <div class="bg-primary1 text-white grid lg:hidden">
+            <div class="px-4 grid grid-flow-col justify-between h-24 lg:px-10">
+                <div class="flex items-center lg:grid lg:grid-flow-col">
+                    <img src="/img/logo.png" alt="">
+                </div>
+                <div id="sideBar"
+                    class="hidden z-25 pt-6 text-primary1 -mr-8 absolute bg-white/70 justify-self-end justify-between h-screen text-center w-3/6 ">
+                    <div class="grid -mr-4">
+                        <img onclick="sideBarToggle()" id="close" class="justify-self-end h-10 w-10"
+                            src="/img/close.png" alt="">
+                    </div>
+                    {{!-- <ul class=" grid grid-flow-col gap-28"> --}}
+                        <ul class="hidden text-left list-none text-lg"></ul>
+                        <li class="h-fit hover:underline"><a href="/">Home</a></l>
+                        <li class="h-fit hover:underline"><a href="/about">About Us</a></li>
+                        {{#if isloggedIn}}
+                        <li class="hover:underline"><a href="/edit_tree">Edit Tree</a></li>
+                        <li class="hover:underline"><a href="/family_tree_search">View Tree</a></li>
+                        {{else}}
+                        <li class=" hover:underline"><a href="/about">Learn More</a></li>
+                        {{/if}}
+                    </ul>
+                    <div class="text-center justify-center flex text-xl lg:ml-0">
+                        {{#if isloggedIn}}
+                        <a href="/logout" onclick="confirmLogout()"
+                            class="bg-white rounded-lg h-fit text-primary1 w-44 p-4 text-center shadow-lg mr-0 ml-40">Logout</a>
+                        {{else}}
+                        <a href="/login"
+                            class="border-primary2 bg-white h-fit text-primary1 border-l-2 rounded-lg shadow-primary2 shadow-lg w-36 p-4 text-center  hover:text-white hover:bg-primary1">Login</a>
+                        <a class=" text-primary1 border-primary2 h-fit border-l-2 rounded-lg shadow-primary2 shadow-lg w-36 p-4 text-center"
+                            href="/signup">Sign Up</a>
+                        {{/if}}
+                    </div>
+                </div>
+                <div id="open" class="grid  lg:hidden " onclick="sideBarToggle()">
+                    <img class="self-center w-8 h-8" src="/img/menu1.png" alt="">
+                </div>
+
+
             </div>
             <div class="bg-primary2 flex h-10 items-center justify-center lg:grid lg:grid-flow-col">
                 <img class="" src="/img/star.png" alt="">
@@ -163,6 +208,18 @@
             <p>Designed By: ITS.</p>
         </div> -->
     </div>
+    <script>
+        var sideBar = document.getElementById('sideBar');
+        var open = document.getElementById('open');
+
+        function sideBarToggle() {
+            sideBar.classList.toggle('hidden');
+            sideBar.classList.toggle('grid');
+            open.classList.toggle('hidden');
+            open.classList.toggle('grid')
+
+        }
+    </script>
     <script type="text/javascript" src="javascripts/dataInput.js"></script>
     {{!--
     <script type="text/javascript" src="javascripts/edit.js" defer></script> --}}
