@@ -16,7 +16,7 @@
 </head>
 
 <body>
-     <div class="lg:grid lg:grid-flow-row">
+     <div class="lg:grid lg:grid-flow-row ">
         <!-- Navbar -->
         {{!-- Large screen --}}
         <div class="hidden bg-primary1 text-white lg:grid lg:grid-flow-row">
@@ -72,16 +72,19 @@
         </div>
     </div>
         <!-- main page -->
-        <div class="w-screen">
+        <div class="h-4/6">
             <div class="lg:grid lg:grid-flow-col lg:p-28 lg:text-primary2 lg:h-64 lg:absolute ">
                 <div class="hidden lg:grid">
                     <img class=" lg:w-96 lg:-ml-10 lg:rounded-sm  " src="/img/home_pic.jpg" alt="">
                 </div>
-                <div class="p-12 pl-36">
+                <div class="lg:p-12 ">
                     <h1 class="text-6xl font-bold h-24 mt-6">About Us<img class="inline-block" src="/img/leaf.png"
                             alt=""></h1>
                     <h3 class="text-lg text-primary1 tracking-widest">THE FAMILY TREE APP</h3>
-                    <p>Welcome to our family tree software! We are a passionate team of developers and genealogy
+                    <p class="lg:hidden">
+                        The Family Tree Software is a user-friendly platform developed by a team of genealogy enthusiasts. It aims to help individuals and families create and explore their family history. The software offers an intuitive interface to easily build comprehensive family trees, documenting relationships, adding details, photos, and stories. Data security and privacy are prioritized. The software comes with dedicated customer support and a commitment to continuous improvement based on user feedback. It emphasizes the significance of preserving familial connections and heritage.
+                    </p>
+                    <p class="hidden lg:block">Welcome to our family tree software! We are a passionate team of developers and genealogy
                         enthusiasts dedicated to providing a seamless and enjoyable experience for creating and
                         exploring your family history.
 
@@ -117,7 +120,7 @@
                     </p>
                 </div>
             </div>
-            <div class=" z-10 grid grid-flow-row w-full bg-transparent text-primary2 h-64 absolute">
+            <div class="hidden z-10 lg:grid grid-flow-row w-full bg-transparent text-primary2 h-64 absolute">
                 <div class="grid grid-flow-row grid-rows-6">
                     <div class="border-green-700 grid grid-flow-col justify-end">
                         <div class="h-8 w-80 bg-white shadow-xl border-x-2 border-b-4"></div>
@@ -136,7 +139,7 @@
     {{!-- mobile view --}}
     <div id="sideBar" class="z-25 absolute hidden lg:hidden justify-self-end h-full w-full mb-0 top-0 bg-black/50">
         <div id=""
-            class="p-6 flex flex-col text-white -mr-4  bg-primary1 justify-self-end  justify-between text-center w-3/6">
+            class="p-6 flex flex-col text-white -mr-4  bg-primary1 justify-self-end  justify-between text-center w-4/6">
             <div class="grid mr-6">
                 <img onclick="sideBarToggle()" id="close" class="justify-self-end h-10 w-10" src="/img/close.png"
                     alt="">
